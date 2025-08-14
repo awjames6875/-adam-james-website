@@ -7,7 +7,12 @@
       "WebFetch(domain:member.eonetwork.org)",
       "WebSearch",
       "WebFetch(domain:www.buildintulsa.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git branch:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git remote remove:*)"
     ],
     "deny": [],
     "ask": []
