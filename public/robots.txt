@@ -1,0 +1,53 @@
+# Robots.txt for adamjamestulsa.com
+# Optimized for maximum search engine visibility
+
+User-agent: *
+Allow: /
+
+# High-priority pages for crawling
+Allow: /locations/
+Allow: /services/
+Allow: /businesses/
+Allow: /blog/
+
+# Block admin and API routes from indexing
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Block common bot traps
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /temp/
+
+# Allow major search engines full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block problematic crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://adamjamestulsa.com/api/sitemap
+Sitemap: https://adamjamestulsa.com/sitemap.xml
+
+# Crawl delay for specific bots
+User-agent: *
+Crawl-delay: 1

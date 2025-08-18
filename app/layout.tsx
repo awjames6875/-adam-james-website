@@ -1,10 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
+import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://adamjamestulsa.com'),
   title: 'Adam James - Tulsa Entrepreneur & Business Leader',
   description: 'Adam James is a leading Tulsa entrepreneur, business innovator, and community leader driving growth and success in Oklahoma.',
   keywords: 'Adam James, Tulsa, entrepreneur, business leader, Oklahoma, innovation',
@@ -56,8 +69,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className={inter.className}>
+        <Navigation />
+        <main className="pt-16 lg:pt-20">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   )
 }
