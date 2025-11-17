@@ -17,7 +17,11 @@ interface NavLink {
   dropdown?: DropdownItem[]
 }
 
-const Navigation = () => {
+export interface NavigationProps {
+  className?: string
+}
+
+const Navigation = ({ className }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -95,9 +99,10 @@ const Navigation = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      isScrolled 
-        ? "bg-white/98 backdrop-blur-md shadow-lg" 
-        : "bg-white/95 backdrop-blur-md shadow-sm"
+      isScrolled
+        ? "bg-white/98 backdrop-blur-md shadow-lg"
+        : "bg-white/95 backdrop-blur-md shadow-sm",
+      className
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">

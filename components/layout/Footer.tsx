@@ -105,7 +105,7 @@ const contactInfo = {
   },
 };
 
-interface FooterProps {
+export interface FooterProps {
   className?: string;
 }
 
