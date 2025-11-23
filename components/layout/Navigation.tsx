@@ -24,18 +24,18 @@ const Navigation = () => {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const businessLinks: DropdownItem[] = [
-    { 
-      href: '/businesses/integrity-corporate-housing', 
+    {
+      href: '/businesses/integrity-corporate-housing',
       label: 'Integrity Corporate Housing',
       description: 'Premium corporate housing solutions'
     },
-    { 
-      href: '/businesses/safe-harbor-mental-health', 
+    {
+      href: '/businesses/safe-harbor-mental-health',
       label: 'Safe Harbor Mental Health',
       description: 'Comprehensive mental health services'
     },
-    { 
-      href: '/businesses/growthgenix-ai', 
+    {
+      href: '/businesses/growthgenix-ai',
       label: 'GrowthGenix.ai',
       description: 'AI-powered business growth solutions'
     }
@@ -93,22 +93,17 @@ const Navigation = () => {
   }
 
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      isScrolled 
-        ? "bg-white/98 backdrop-blur-md shadow-lg" 
-        : "bg-white/95 backdrop-blur-md shadow-sm"
-    )}>
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/98 backdrop-blur-md shadow-lg py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group" onClick={closeAllMenus}>
-            <div className="relative">
-              <span className="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            <div className="flex flex-col justify-center">
+              <span className="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-none mb-1">
                 Adam James
               </span>
-              <span className="absolute -bottom-1 left-0 text-xs lg:text-sm text-blue-600 font-semibold tracking-wider">
-                TULSA
+              <span className="text-xs lg:text-sm font-semibold tracking-[0.2em] uppercase leading-none text-blue-600">
+                Tulsa
               </span>
             </div>
           </Link>
@@ -121,19 +116,22 @@ const Navigation = () => {
                   <div key={link.label} className="relative">
                     <button
                       onClick={() => handleDropdownToggle(link.label)}
-                      className="flex items-center space-x-1 px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium rounded-lg hover:bg-gray-50"
+                      className={cn(
+                        "flex items-center space-x-1 px-4 py-2 transition-colors duration-200 font-medium rounded-lg",
+                        "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      )}
                       aria-expanded={activeDropdown === link.label}
                     >
                       <span>{link.label}</span>
-                      <ChevronDown 
-                        size={16} 
+                      <ChevronDown
+                        size={16}
                         className={cn(
                           "transition-transform duration-200",
                           activeDropdown === link.label && "rotate-180"
-                        )} 
+                        )}
                       />
                     </button>
-                    
+
                     {activeDropdown === link.label && (
                       <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
                         {link.dropdown.map((item) => (
@@ -154,7 +152,7 @@ const Navigation = () => {
                   </div>
                 )
               }
-              
+
               return (
                 <Link
                   key={link.href}
@@ -166,11 +164,11 @@ const Navigation = () => {
                 </Link>
               )
             })}
-            
+
             <Link
               href="/contact"
               onClick={closeAllMenus}
-              className="ml-4 bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-medium"
+              className="ml-4 px-6 py-2.5 rounded-full transform hover:scale-105 transition-all duration-200 font-medium shadow-lg bg-blue-600 text-white hover:bg-blue-700"
             >
               Get In Touch
             </Link>
@@ -179,7 +177,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg transition-colors text-gray-900 hover:bg-gray-100"
             aria-label="Toggle mobile menu"
             aria-expanded={isMenuOpen}
           >
@@ -190,7 +188,7 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-16 left-0 right-0 bg-white border-t shadow-xl">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t shadow-xl">
           <div className="px-4 py-6 space-y-2 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => {
               if (link.dropdown) {
@@ -201,15 +199,15 @@ const Navigation = () => {
                       className="flex items-center justify-between w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200 font-medium rounded-lg"
                     >
                       <span>{link.label}</span>
-                      <ChevronDown 
-                        size={16} 
+                      <ChevronDown
+                        size={16}
                         className={cn(
                           "transition-transform duration-200",
                           activeDropdown === link.label && "rotate-180"
-                        )} 
+                        )}
                       />
                     </button>
-                    
+
                     {activeDropdown === link.label && (
                       <div className="ml-4 space-y-1 border-l-2 border-blue-100 pl-3">
                         {link.dropdown.map((item) => (
@@ -230,7 +228,7 @@ const Navigation = () => {
                   </div>
                 )
               }
-              
+
               return (
                 <Link
                   key={link.href}
@@ -242,7 +240,7 @@ const Navigation = () => {
                 </Link>
               )
             })}
-            
+
             <div className="pt-4 mt-4 border-t border-gray-200">
               <Link
                 href="/contact"
