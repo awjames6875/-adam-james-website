@@ -1,228 +1,401 @@
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
+import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema'
 
 export const metadata: Metadata = {
-  title: 'Bixby Business Owner Adam James | Professional Consulting',
-  description: 'Learn how Adam James helps Bixby entrepreneurs succeed with business development, investment strategies, and community-focused solutions in Oklahoma.',
-  keywords: 'Bixby business owner Adam James, Adam James Bixby, professional consulting Bixby',
+  title: 'Bixby Entrepreneur Adam James | Business Services & Community Leadership',
+  description: 'Adam James provides business consulting, mental health services, and corporate housing solutions in Bixby, Oklahoma. Serving Bixby\'s thriving community with excellence and compassion.',
+  keywords: 'Bixby entrepreneur Adam James, Adam James Bixby business, Bixby mental health services, Bixby corporate housing, Bixby Oklahoma business services',
   openGraph: {
-    title: 'Bixby Business Owner Adam James | Professional Consulting',
-    description: 'Learn how Adam James helps Bixby entrepreneurs succeed with business development, investment strategies, and community-focused solutions in Oklahoma.',
-    type: 'website',
-    locale: 'en_US',
+    title: 'Bixby Entrepreneur Adam James | Business Services',
+    description: 'Adam James provides business consulting, mental health services, and corporate housing solutions in Bixby, Oklahoma. Serving Bixby\'s thriving community.',
+    url: 'https://adamjamestulsa.com/locations/bixby',
+    images: [
+      {
+        url: '/images/bixby-adam-james.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Adam James Bixby Business Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bixby Entrepreneur Adam James',
+    description: 'Business consulting, mental health services, and corporate housing solutions in Bixby, Oklahoma.',
+    images: ['/images/bixby-adam-james.jpg'],
+  },
+}
+
+const bixbyBusinessData = {
+  name: 'Adam James - Bixby Services',
+  description: 'Business consulting, mental health services, and corporate housing solutions in Bixby, Oklahoma. Serving Bixby\'s thriving community.',
+  url: 'https://adamjamestulsa.com/locations/bixby',
+  address: {
+    addressLocality: 'Bixby',
+    addressRegion: 'OK',
+    addressCountry: 'US',
+    postalCode: '74008'
+  },
+  geo: {
+    latitude: 35.9581,
+    longitude: -95.8814
+  },
+  sameAs: [
+    'https://linkedin.com/in/adamjamestulsa',
+    'https://facebook.com/adamjamestulsa',
+    'https://instagram.com/adamjamestulsa'
+  ],
+  serviceArea: {
+    '@type': 'AdministrativeArea' as const,
+    name: 'Bixby'
   }
 }
 
 export default function BixbyPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="bg-gradient-to-br from-violet-900 via-purple-800 to-indigo-700 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      {/* SEO Schema Markup */}
+      <LocalBusinessSchema business={bixbyBusinessData} />
+
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-orange-50 to-red-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Bixby Professional Excellence <br />
-              <span className="text-violet-300">Adam James</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Bixby Entrepreneur
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-purple-100">
-              Strategic Business Development in Oklahoma's Fastest Growing City
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Adam James serves Bixby's thriving community with corporate housing, 
+              mental health services, and strategic business consulting
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact" className="bg-violet-400 hover:bg-violet-500 text-violet-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Connect with Adam James
-              </a>
-              <a href="#services" className="border-2 border-white text-white hover:bg-white hover:text-violet-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Explore Services
-              </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Serving Bixby's Growing Community
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Bixby, Oklahoma, known as the "Garden Spot of Oklahoma," is a rapidly growing 
+                community that perfectly balances small-town charm with modern amenities. From 
+                the historic downtown area to the beautiful residential neighborhoods, Bixby 
+                offers an exceptional quality of life for families and businesses alike.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                As a Bixby entrepreneur, I understand the unique needs of this vibrant community. 
+                Whether you're a family seeking mental health support, a business professional 
+                needing corporate housing, or a local business looking to grow and thrive, I'm 
+                here to serve Bixby with the same dedication and excellence that defines our community.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <span className="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">
+                  Historic Downtown
+                </span>
+                <span className="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium">
+                  Residential Areas
+                </span>
+                <span className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium">
+                  Business District
+                </span>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl">
+              <div className="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
+                <span className="text-gray-400 text-lg">Bixby Map</span>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Service Area</h3>
+                <p className="text-gray-600">Bixby & Surrounding Areas</p>
+                <p className="text-gray-600">Within 15 miles of Bixby center</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Adam James: Bixby's Strategic Business Partner</h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="text-xl mb-6">
-              <strong>Bixby business owner Adam James</strong> has established himself as a key player in one of Oklahoma's most dynamic and rapidly expanding communities. Bixby's remarkable transformation from a small rural town to a thriving suburban city represents exactly the kind of growth opportunity that Adam James excels at identifying, understanding, and leveraging for business success.
-            </p>
-
-            <p className="mb-6">
-              The city of Bixby has achieved national recognition for its quality of life, economic development, and community planning, creating an environment where innovative businesses can flourish while maintaining strong community connections. <strong>Adam James Bixby</strong> operations are strategically designed to serve this sophisticated market while contributing to the continued growth and prosperity that defines the Bixby experience.
-            </p>
-
-            <p className="mb-6">
-              Bixby's unique position as both a family-oriented residential community and a growing business destination creates distinctive opportunities for entrepreneurs who understand how to serve diverse market segments. Adam James has developed comprehensive service offerings that address the needs of established residents, new families attracted to the area, and businesses seeking to capitalize on Bixby's growth momentum.
-            </p>
-
-            <p className="mb-6">
-              Through Integrity Corporate Housing, Adam James provides premium temporary accommodations for the executives, consultants, and professionals who are discovering Bixby's advantages for business operations and family life. These services support both the economic development goals of the city and the practical needs of individuals and companies choosing Bixby as their base of operations.
-            </p>
-
-            <p className="mb-6">
-              <strong>Professional consulting Bixby</strong> services delivered by Adam James recognize that success in this market requires understanding the balance between growth and quality of life that defines the Bixby approach to development. His consulting work helps businesses navigate this environment while building sustainable operations that contribute to the community's long-term prosperity.
-            </p>
-
-            <p className="mb-6">
-              The demographic characteristics of Bixby, including high educational attainment, strong household incomes, and active community engagement, create favorable conditions for businesses that can deliver premium value while maintaining authentic community relationships. Adam James's approach to business development is specifically calibrated to meet these sophisticated expectations while building lasting partnerships that benefit both businesses and the community.
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Capitalizing on Bixby's Growth Trajectory</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-violet-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-violet-900 mb-4">Strategic Development</h3>
-              <p className="text-gray-700">
-                Bixby's thoughtful approach to growth and development creates sustainable opportunities for businesses that align with the community's vision for balanced prosperity and quality of life enhancement.
+      {/* Bixby Business Climate */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+              Bixby Business Climate
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Bixby has experienced remarkable growth and development, becoming one of the most 
+                desirable communities in the Tulsa metropolitan area. The city's strategic location, 
+                excellent schools, and business-friendly environment have attracted numerous 
+                businesses and professionals seeking a high quality of life.
               </p>
-            </div>
-            <div className="bg-purple-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">Business-Friendly Environment</h3>
-              <p className="text-gray-700">
-                Progressive municipal leadership and streamlined business processes make Bixby an attractive location for entrepreneurs and established companies seeking expansion opportunities in the Tulsa metropolitan area.
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                The historic downtown area continues to thrive with local businesses, while new 
+                developments bring modern amenities and services. Bixby's commitment to maintaining 
+                its small-town character while embracing growth has created a unique business 
+                environment that supports both established companies and entrepreneurial ventures.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Future development plans include continued infrastructure improvements, enhanced 
+                business districts, and preservation of Bixby's historic charm. These initiatives 
+                ensure that Bixby will remain a premier destination for businesses and families.
               </p>
             </div>
           </div>
-
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-6">
-              The <strong>Bixby business owner Adam James</strong> approach to market development leverages the city's strategic advantages while respecting the community values that have made Bixby one of Oklahoma's most desirable places to live and work. This balance requires sophisticated understanding of both business opportunities and community expectations.
-            </p>
-
-            <p className="mb-6">
-              Bixby's location provides excellent access to the broader Tulsa metropolitan area while maintaining distinct advantages in terms of cost structure, regulatory environment, and quality of life factors. Adam James helps businesses understand and capitalize on these advantages while building the community relationships that are essential for long-term success in the Bixby market.
-            </p>
-
-            <p className="mb-6">
-              The city's investment in infrastructure, education, and community amenities creates a foundation for sustainable business growth that benefits both entrepreneurs and residents. Adam James's work in Bixby demonstrates how businesses can contribute to this positive cycle while achieving their own growth and profitability objectives.
-            </p>
           </div>
         </section>
 
-        <section id="services" className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Comprehensive Business Services for Bixby</h2>
+      {/* Services in Bixby */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Adam James Services in Bixby
+          </h2>
           
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-violet-900 mb-4">Strategic Corporate Housing</h3>
-              <p className="text-gray-700 mb-4">
-                Premium temporary accommodations designed for executives and professionals choosing Bixby for its strategic advantages and quality of life through Integrity Corporate Housing.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Corporate Housing */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-12 h-12 bg-amber-100 rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-2xl">🏠</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Corporate Housing</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Premium corporate housing solutions in Bixby's most desirable neighborhoods. 
+                Perfect for executives and professionals working in the Bixby area.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Executive relocation services</li>
-                <li>• Strategic location accommodations</li>
-                <li>• Family-focused housing solutions</li>
-                <li>• Extended stay corporate options</li>
+              <ul className="text-sm text-gray-500 space-y-2">
+                <li>• Family-friendly community</li>
+                <li>• Near excellent schools</li>
+                <li>• Safe, quiet neighborhoods</li>
+                <li>• Modern amenities included</li>
               </ul>
             </div>
             
-            <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">Community Mental Health</h3>
-              <p className="text-gray-700 mb-4">
-                Specialized mental health and family support services that serve Bixby's growing population through Safe Harbor Mental Health's community-centered approach.
+            {/* Mental Health Services */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-2xl">💚</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mental Health Services</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Comprehensive mental health support for Bixby families and individuals. 
+                Community-focused care with flexible scheduling options.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Family therapy and counseling</li>
-                <li>• Pediatric mental health services</li>
-                <li>• Community wellness programs</li>
-                <li>• Growth transition support</li>
+              <ul className="text-sm text-gray-500 space-y-2">
+                <li>• Individual & family therapy</li>
+                <li>• Child & adolescent counseling</li>
+                <li>• Couples therapy</li>
+                <li>• Community support groups</li>
               </ul>
             </div>
             
-            <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-indigo-900 mb-4">Growth Strategy Consulting</h3>
-              <p className="text-gray-700 mb-4">
-                Advanced business consulting and technology solutions that help Bixby businesses scale effectively while maintaining community focus through GrowthGenix AI.
+            {/* Business Consulting */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-12 h-12 bg-green-100 rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-2xl">🚀</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Business Consulting</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Strategic business development for Bixby companies. From downtown businesses 
+                to growing enterprises.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Growth strategy development</li>
-                <li>• Technology implementation</li>
-                <li>• Market expansion planning</li>
-                <li>• Community integration consulting</li>
+              <ul className="text-sm text-gray-500 space-y-2">
+                <li>• Local market expertise</li>
+                <li>• Community engagement strategies</li>
+                <li>• Growth planning</li>
+                <li>• Operational optimization</li>
               </ul>
             </div>
           </div>
-
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-6">
-              <strong>Adam James Bixby</strong> service delivery model emphasizes the importance of sustainable growth that benefits both businesses and the community. This approach has proven highly effective in a market where long-term thinking and community relationships are valued alongside business performance and innovation.
-            </p>
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Bixby Success Stories</h2>
+      {/* Community Involvement */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+              Bixby Community Involvement
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                I'm deeply committed to Bixby's community life, from supporting local schools 
+                and youth programs to participating in business development initiatives. The 
+                strong sense of community and family values in Bixby align perfectly with my 
+                mission to serve and support families and businesses.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                I regularly participate in Bixby business networking events, support local 
+                schools and youth organizations, and collaborate with community leaders on 
+                initiatives that benefit families and businesses. My goal is to help strengthen 
+                the community bonds that make Bixby such a wonderful place to live and work.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Through partnerships with local businesses, participation in community 
+                development projects, and support for family-focused initiatives, I'm dedicated 
+                to contributing to the continued growth and success of Bixby.
+              </p>
+            </div>
+          </div>
+          </div>
+        </section>
+
+      {/* Demographics & Market */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Bixby Demographics & Market
+          </h2>
           
-          <div className="bg-gray-50 p-8 rounded-lg mb-8">
-            <h3 className="text-2xl font-semibold text-violet-900 mb-4">Technology Startup Success</h3>
-            <p className="text-gray-700 mb-4">
-              A technology startup chose Bixby as their headquarters location to take advantage of the city's business-friendly environment and quality of life benefits for recruiting top talent. They approached Adam James for comprehensive business development support, including technology infrastructure, staff housing, and community integration strategies.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Adam James provided integrated services including technology consulting through GrowthGenix AI, corporate housing for relocating team members through Integrity Corporate Housing, and strategic guidance on community engagement and business development. The comprehensive approach addressed both operational needs and community relationship building.
-            </p>
-            <p className="text-gray-700 mb-4">
-              The startup successfully grew from 4 founders to 28 employees within two years while maintaining their Bixby location and building strong community relationships. They now serve clients nationwide while actively participating in Bixby's economic development initiatives and supporting local educational programs.
-            </p>
-            <blockquote className="border-l-4 border-violet-500 pl-4 italic text-gray-600">
-              "Adam James helped us understand that success in Bixby meant more than just building a profitable business—it meant becoming part of a community that values both innovation and quality of life. His guidance was invaluable in achieving both goals."
-            </blockquote>
-          </div>
-        </section>
-
-        <section id="contact" className="bg-gradient-to-r from-violet-900 to-indigo-800 text-white p-8 rounded-lg">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Partner with Bixby's Growth Strategy Expert</h2>
-            <p className="text-xl mb-8 text-violet-100">
-              Discover how Adam James can help your business thrive while contributing to Bixby's sustainable growth and community success.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Strategic Planning</h3>
-                <p className="text-sm text-violet-100">Comprehensive business development for Bixby success</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Community Integration</h3>
-                <p className="text-sm text-violet-100">Building lasting relationships and local partnerships</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Sustainable Growth</h3>
-                <p className="text-sm text-violet-100">Balanced development that benefits business and community</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Population & Demographics</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Total Population</span>
+                  <span className="text-xl font-bold text-orange-600">28,000+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Median Age</span>
+                  <span className="text-xl font-bold text-orange-600">38 years</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">College Educated</span>
+                  <span className="text-xl font-bold text-orange-600">70%</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Median Income</span>
+                  <span className="text-xl font-bold text-orange-600">$85,000</span>
+                </div>
               </div>
             </div>
             
+              <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Business Environment</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Local Businesses</span>
+                  <span className="text-xl font-bold text-orange-600">200+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Professional Services</span>
+                  <span className="text-xl font-bold text-orange-600">75+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Retail & Dining</span>
+                  <span className="text-xl font-bold text-orange-600">150+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Annual Growth Rate</span>
+                  <span className="text-xl font-bold text-orange-600">6.2%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Bixby Client Success Stories
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-gray-600">5.0/5</span>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "Adam's corporate housing in Bixby is perfect for our visiting executives. The 
+                family-friendly community and excellent schools make it ideal for extended stays."
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
+              <div>
+                  <p className="font-semibold text-gray-900">Mark Johnson</p>
+                  <p className="text-sm text-gray-600">Business Owner, Bixby</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-gray-600">5.0/5</span>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "The family counseling services Adam provides in Bixby have been incredibly helpful. 
+                His understanding of our community values makes all the difference."
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
+                <div>
+                  <p className="font-semibold text-gray-900">Sarah Davis</p>
+                  <p className="text-sm text-gray-600">Bixby Parent</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-20 bg-orange-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Ready to Work Together in Bixby?
+            </h2>
+            <p className="text-xl mb-8 leading-relaxed">
+              Whether you need corporate housing, mental health services, or business consulting 
+              in Bixby, I'm here to help you succeed. Let's discuss how we can work 
+              together to achieve your goals in our wonderful community.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:contact@adamjamestulsa.com" className="bg-violet-400 hover:bg-violet-500 text-violet-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Schedule Consultation
+              <a 
+                href="/contact" 
+                className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Get In Touch
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-violet-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Call Adam James
+              <a 
+                href="/businesses" 
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
+              >
+                Explore Services
               </a>
             </div>
+            
+            <div className="mt-12 pt-8 border-t border-orange-500/30">
+              <p className="text-orange-200 mb-4">Service Areas in Bixby</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <span className="bg-orange-500/20 text-orange-100 px-4 py-2 rounded-full text-sm">
+                  Historic Downtown
+                </span>
+                <span className="bg-orange-500/20 text-orange-100 px-4 py-2 rounded-full text-sm">
+                  Residential Areas
+                </span>
+                <span className="bg-orange-500/20 text-orange-100 px-4 py-2 rounded-full text-sm">
+                  Business District
+                </span>
+                <span className="bg-orange-500/20 text-orange-100 px-4 py-2 rounded-full text-sm">
+                  New Developments
+                </span>
+              </div>
+            </div>
+          </div>
           </div>
         </section>
-
-        <section className="mt-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Explore Adam James's Impact Across Oklahoma</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="/locations/jenks" className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-rose-900 mb-2">Jenks</h3>
-              <p className="text-gray-600">Discover Adam James's educational business expertise in Jenks</p>
-            </a>
-            <a href="/locations/glenpool" className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">Glenpool</h3>
-              <p className="text-gray-600">Learn about business opportunities in neighboring Glenpool</p>
-            </a>
-            <a href="/locations/broken-arrow" className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibinal font-semibold text-emerald-900 mb-2">Broken Arrow</h3>
-              <p className="text-gray-600">Explore Adam James's business excellence in Broken Arrow</p>
-            </a>
-          </div>
-        </section>
-      </main>
-    </div>
+    </>
   )
 }

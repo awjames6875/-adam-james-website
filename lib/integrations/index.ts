@@ -1,1 +1,91 @@
-/**\n * Third-Party Integrations Export\n * Centralizes all external service integrations\n */\n\nexport { default as Analytics, GAEvents, trackPageView, trackEvent, initGA } from './analytics';\nexport { default as GoogleMaps, tulsaLocations, createLocationMap, loadGoogleMapsAPI } from './google-maps';\nexport { default as Monitoring, ErrorTracker, PerformanceMonitor, SessionTracker, initMonitoring } from './monitoring';\n\n// Re-export types\nexport type { GAEvent, GAPageView } from './analytics';\nexport type { LocationData, MapOptions } from './google-maps';\n\n// Initialize all integrations (call this in your app root)\nexport function initializeIntegrations(): void {\n  if (typeof window !== 'undefined') {\n    // Client-side initializations\n    import('./analytics').then(({ initGA }) => {\n      initGA();\n    });\n    \n    import('./monitoring').then(({ initMonitoring }) => {\n      initMonitoring();\n    });\n  }\n}\n\n// Integration status checker\nexport async function checkIntegrationsStatus(): Promise<{\n  analytics: boolean;\n  maps: boolean;\n  monitoring: boolean;\n}> {\n  const status = {\n    analytics: false,\n    maps: false,\n    monitoring: false,\n  };\n  \n  // Check Analytics\n  if (typeof window !== 'undefined') {\n    status.analytics = !!(window as any).gtag;\n    status.maps = !!(window as any).google?.maps;\n    status.monitoring = !!(window as any).adamJamesMonitoring;\n  }\n  \n  return status;\n}\n\n// Utility to load all integration scripts\nexport function loadIntegrationScripts(): Promise<void[]> {\n  const promises: Promise<void>[] = [];\n  \n  if (typeof window !== 'undefined') {\n    // Load Google Analytics\n    const gaPromise = import('./analytics').then(({ initGA }) => {\n      initGA();\n    });\n    promises.push(gaPromise);\n    \n    // Load Google Maps (only if API key is available)\n    if (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY) {\n      const mapsPromise = import('./google-maps').then(({ loadGoogleMapsAPI }) => {\n        return loadGoogleMapsAPI();\n      });\n      promises.push(mapsPromise);\n    }\n    \n    // Initialize monitoring\n    const monitoringPromise = import('./monitoring').then(({ initMonitoring }) => {\n      initMonitoring();\n      // Mark monitoring as loaded\n      (window as any).adamJamesMonitoring = true;\n    });\n    promises.push(monitoringPromise);\n  }\n  \n  return Promise.all(promises);\n}\n\nexport default {\n  initializeIntegrations,\n  checkIntegrationsStatus,\n  loadIntegrationScripts,\n};"
+/**
+ * Third-Party Integrations Export
+ * Centralizes all external service integrations
+ */
+
+import Analytics, { GAEvents, trackPageView, trackEvent, initGA } from './analytics';
+import GoogleMaps, { tulsaLocations, createLocationMap, loadGoogleMapsAPI } from './google-maps';
+import Monitoring, { ErrorTracker, PerformanceMonitor, SessionTracker, initMonitoring } from './monitoring';
+
+export {
+    Analytics, GAEvents, trackPageView, trackEvent, initGA,
+    GoogleMaps, tulsaLocations, createLocationMap, loadGoogleMapsAPI,
+    Monitoring, ErrorTracker, PerformanceMonitor, SessionTracker, initMonitoring
+};
+
+// Re-export types
+export type { GAEvent, GAPageView } from './analytics';
+export type { LocationData, MapOptions } from './google-maps';
+
+// Initialize all integrations (call this in your app root)
+export function initializeIntegrations(): void {
+    if (typeof window !== 'undefined') {
+        // Client-side initializations
+        import('./analytics').then(({ initGA }) => {
+            initGA();
+        });
+
+        import('./monitoring').then(({ initMonitoring }) => {
+            initMonitoring();
+        });
+    }
+}
+
+// Integration status checker
+export async function checkIntegrationsStatus(): Promise<{
+    analytics: boolean;
+    maps: boolean;
+    monitoring: boolean;
+}> {
+    const status = {
+        analytics: false,
+        maps: false,
+        monitoring: false,
+    };
+
+    // Check Analytics
+    if (typeof window !== 'undefined') {
+        status.analytics = !!(window as any).gtag;
+        status.maps = !!(window as any).google?.maps;
+        status.monitoring = !!(window as any).adamJamesMonitoring;
+    }
+
+    return status;
+}
+
+// Utility to load all integration scripts
+export function loadIntegrationScripts(): Promise<void[]> {
+    const promises: Promise<void>[] = [];
+
+    if (typeof window !== 'undefined') {
+        // Load Google Analytics
+        const gaPromise = import('./analytics').then(({ initGA }) => {
+            initGA();
+        });
+        promises.push(gaPromise);
+
+        // Load Google Maps (only if API key is available)
+        if (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY) {
+            const mapsPromise = import('./google-maps').then(({ loadGoogleMapsAPI }) => {
+                return loadGoogleMapsAPI();
+            });
+            promises.push(mapsPromise);
+        }
+
+        // Initialize monitoring
+        const monitoringPromise = import('./monitoring').then(({ initMonitoring }) => {
+            initMonitoring();
+            // Mark monitoring as loaded
+            (window as any).adamJamesMonitoring = true;
+        });
+        promises.push(monitoringPromise);
+    }
+
+    return Promise.all(promises);
+}
+
+export default {
+    initializeIntegrations,
+    checkIntegrationsStatus,
+    loadIntegrationScripts,
+};

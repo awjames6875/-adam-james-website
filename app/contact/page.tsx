@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ContactForm from '@/components/forms/ContactForm'
+import { ContactForm } from '@/components/forms/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Adam James - Get In Touch Today',
@@ -31,7 +31,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* Contact Form */}
-            <ContactForm variant="inline" showBudget={false} />
+            <ContactForm />
 
             {/* Contact Information */}
             <div className="space-y-8">

@@ -1,187 +1,173 @@
-import React from 'react';
+'use client';
 
-interface LocalBusinessSchemaProps {
+interface LocalBusiness {
   name: string;
   description: string;
+  url: string;
+  image?: string;
+  telephone?: string;
+  email?: string;
   address: {
-    streetAddress: string;
+    streetAddress?: string;
     addressLocality: string;
     addressRegion: string;
-    postalCode: string;
     addressCountry: string;
+    postalCode?: string;
   };
-  phone: string;
-  email: string;
-  url: string;
-  logo?: string;
-  image?: string[];
-  priceRange?: string;
+  geo?: {
+    latitude: number;
+    longitude: number;
+  };
   openingHours?: string[];
-  areaServed?: string[];
-  serviceType?: string[];
-  founder?: string;
-  foundingDate?: string;
-  aggregateRating?: {
-    ratingValue: number;
-    reviewCount: number;
+  priceRange?: string;
+  paymentAccepted?: string[];
+  currenciesAccepted?: string[];
+  founder?: {
+    name: string;
+    url: string;
   };
   sameAs?: string[];
+  serviceArea?: {
+    '@type': 'GeoCircle' | 'AdministrativeArea';
+    name?: string;
+    geoMidpoint?: {
+      latitude: number;
+      longitude: number;
+    };
+    geoRadius?: number;
+  };
+  hasOfferCatalog?: {
+    name: string;
+    itemListElement: Array<{
+      '@type': 'Offer';
+      itemOffered: {
+        '@type': 'Service';
+        name: string;
+        description: string;
+      };
+    }>;
+  };
 }
 
-export const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
-  name,
-  description,
-  address,
-  phone,
-  email,
-  url,
-  logo,
-  image = [],
-  priceRange = "$$",
-  openingHours = [],
-  areaServed = [],
-  serviceType = [],
-  founder,
-  foundingDate,
-  aggregateRating,
-  sameAs = [],
-}) => {
+interface LocalBusinessSchemaProps {
+  business: LocalBusiness;
+}
+
+export function LocalBusinessSchema({ business }: LocalBusinessSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name,
-    description,
+    name: business.name,
+    description: business.description,
+    url: business.url,
+    ...(business.image && { image: business.image }),
+    ...(business.telephone && { telephone: business.telephone }),
+    ...(business.email && { email: business.email }),
     address: {
       '@type': 'PostalAddress',
-      ...address,
+      ...(business.address.streetAddress && { streetAddress: business.address.streetAddress }),
+      addressLocality: business.address.addressLocality,
+      addressRegion: business.address.addressRegion,
+      addressCountry: business.address.addressCountry,
+      ...(business.address.postalCode && { postalCode: business.address.postalCode }),
     },
-    telephone: phone,
-    email,
-    url,
-    ...(logo && { logo }),
-    ...(image.length > 0 && { image }),
-    priceRange,
-    ...(openingHours.length > 0 && { openingHours }),
-    ...(areaServed.length > 0 && { areaServed }),
-    ...(serviceType.length > 0 && { hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Services',
-      itemListElement: serviceType.map((service, index) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: service,
-        },
-        position: index + 1,
-      })),
-    }}),
-    ...(founder && { founder: {
-      '@type': 'Person',
-      name: founder,
-    }}),
-    ...(foundingDate && { foundingDate }),
-    ...(aggregateRating && { aggregateRating: {
-      '@type': 'AggregateRating',
-      ...aggregateRating,
-    }}),
-    ...(sameAs.length > 0 && { sameAs }),
-    // Additional local business properties
-    paymentAccepted: 'Cash, Credit Card, Check, Bank Transfer',
-    currenciesAccepted: 'USD',
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 36.1540,
-      longitude: -95.9928,
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: phone,
-      contactType: 'customer service',
-      areaServed: 'US-OK',
-      availableLanguage: 'English',
-    },
+    ...(business.geo && {
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: business.geo.latitude,
+        longitude: business.geo.longitude,
+      }
+    }),
+    ...(business.openingHours && { openingHours: business.openingHours }),
+    ...(business.priceRange && { priceRange: business.priceRange }),
+    ...(business.paymentAccepted && { paymentAccepted: business.paymentAccepted }),
+    ...(business.currenciesAccepted && { currenciesAccepted: business.currenciesAccepted }),
+    ...(business.founder && {
+      founder: {
+        '@type': 'Person',
+        name: business.founder.name,
+        url: business.founder.url,
+      }
+    }),
+    ...(business.sameAs && { sameAs: business.sameAs }),
+    ...(business.serviceArea && { serviceArea: business.serviceArea }),
+    ...(business.hasOfferCatalog && { hasOfferCatalog: business.hasOfferCatalog }),
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema, null, 2),
-      }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
+}
+
+// Default business data for Adam James Tulsa
+export const adamJamesBusinessData: LocalBusiness = {
+  name: 'Adam James Tulsa',
+  description: 'Tulsa entrepreneur and business leader specializing in mental health services, corporate housing solutions, and business development. Serving the Tulsa community with compassion and excellence.',
+  url: 'https://adamjamestulsa.com',
+  image: 'https://adamjamestulsa.com/images/adam-james-business.jpg',
+  telephone: '(918) 555-0123',
+  email: 'adam@adamjamestulsa.com',
+  address: {
+    streetAddress: '123 Main Street',
+    addressLocality: 'Tulsa',
+    addressRegion: 'OK',
+    addressCountry: 'US',
+    postalCode: '74103'
+  },
+  geo: {
+    latitude: 36.1540,
+    longitude: -95.9928
+  },
+  openingHours: [
+    'Mo-Fr 08:00-18:00',
+    'Sa 09:00-16:00'
+  ],
+  priceRange: '$$',
+  paymentAccepted: ['Cash', 'Credit Card', 'Check'],
+  currenciesAccepted: ['USD'],
+  founder: {
+    name: 'Adam James',
+    url: 'https://adamjamestulsa.com'
+  },
+  sameAs: [
+    'https://linkedin.com/in/adamjamestulsa',
+    'https://facebook.com/adamjamestulsa',
+    'https://instagram.com/adamjamestulsa'
+  ],
+  serviceArea: {
+    '@type': 'AdministrativeArea',
+    name: 'Tulsa Metropolitan Area'
+  },
+  hasOfferCatalog: {
+    name: 'Adam James Tulsa Services',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Corporate Housing',
+          description: 'Premium corporate housing solutions for Tulsa businesses'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Mental Health Services',
+          description: 'Comprehensive mental health support for Tulsa families'
+        }
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Business Consulting',
+          description: 'Strategic business development and growth consulting'
+        }
+      }
+    ]
+  }
 };
-
-// Predefined Adam James Tulsa Local Business Schema
-export const AdamJamesTulsaLocalBusiness: React.FC = () => (
-  <LocalBusinessSchema
-    name="Adam James - Tulsa Business Leader"
-    description="Premier business consulting, corporate housing, and mental health services in Tulsa, Oklahoma. Expert entrepreneur driving economic growth and innovation across the region."
-    address={{
-      streetAddress: "123 Main Street, Suite 100",
-      addressLocality: "Tulsa",
-      addressRegion: "OK",
-      postalCode: "74103",
-      addressCountry: "US",
-    }}
-    phone="+1-918-555-0123"
-    email="contact@adamjamestulsa.com"
-    url="https://adamjamestulsa.com"
-    logo="https://adamjamestulsa.com/images/adam-james-logo.png"
-    image={[
-      "https://adamjamestulsa.com/images/adam-james-professional.jpg",
-      "https://adamjamestulsa.com/images/tulsa-office-exterior.jpg",
-      "https://adamjamestulsa.com/images/adamj-holdings-office.jpg",
-    ]}
-    priceRange="$$$"
-    openingHours={[
-      "Mo-Fr 08:00-17:00",
-      "Sa 09:00-15:00",
-    ]}
-    areaServed={[
-      "Tulsa",
-      "Broken Arrow",
-      "Jenks",
-      "Bixby",
-      "Owasso",
-      "Sand Springs",
-      "Sapulpa",
-      "Glenpool",
-      "Claremore",
-      "Catoosa",
-      "Collinsville",
-      "Coweta",
-      "Skiatook",
-      "Verdigris",
-      "Wagoner",
-      "Oklahoma",
-    ]}
-    serviceType={[
-      "Business Consulting",
-      "Corporate Housing",
-      "Mental Health Services",
-      "Real Estate Investment",
-      "Strategic Planning",
-      "Investment Advisory",
-      "Property Management",
-      "Therapy Services",
-      "Executive Coaching",
-      "Market Analysis",
-    ]}
-    founder="Adam James"
-    foundingDate="2015"
-    aggregateRating={{
-      ratingValue: 4.9,
-      reviewCount: 127,
-    }}
-    sameAs={[
-      "https://linkedin.com/in/adamjamestulsa",
-      "https://facebook.com/adamjamestulsa",
-      "https://twitter.com/adamjamestulsa",
-      "https://instagram.com/adamjamestulsa",
-      "https://youtube.com/@adamjamestulsa",
-    ]}
-  />
-);
-
-export default LocalBusinessSchema;

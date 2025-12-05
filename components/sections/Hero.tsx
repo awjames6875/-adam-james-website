@@ -197,7 +197,7 @@ const Hero: React.FC<HeroProps> = ({
                 {/* Main Image with modern styling */}
                 <div className="relative rounded-3xl overflow-hidden shadow-xl shadow-black/20 animate-fade-in hover-lift">
                   <Image
-                    src="/images/adam-james-professional.jpg"
+                    src="/images/infrontofcomputer.png"
                     alt="Adam James - Tulsa Business Leader"
                     width={600}
                     height={700}

@@ -3,4 +3,515 @@
  * Handles performance monitoring, error tracking, and logging
  */
 
-import { config } from '@/lib/config';\nimport { AnalyticsStorage } from '@/lib/api/storage';\n\ninterface ErrorReport {\n  message: string;\n  stack?: string;\n  url: string;\n  userAgent: string;\n  timestamp: number;\n  userId?: string;\n  sessionId?: string;\n  severity: 'low' | 'medium' | 'high' | 'critical';\n  context?: Record<string, any>;\n}\n\ninterface PerformanceMetrics {\n  url: string;\n  loadTime: number;\n  domContentLoaded: number;\n  firstPaint?: number;\n  firstContentfulPaint?: number;\n  largestContentfulPaint?: number;\n  cumulativeLayoutShift?: number;\n  firstInputDelay?: number;\n  timeToInteractive?: number;\n  timestamp: number;\n  userAgent: string;\n  connectionType?: string;\n  deviceMemory?: number;\n}\n\ninterface UserSession {\n  sessionId: string;\n  userId?: string;\n  startTime: number;\n  lastActivity: number;\n  pageViews: number;\n  events: any[];\n  userAgent: string;\n  referrer?: string;\n  utm?: Record<string, string>;\n}\n\n// Generate a unique session ID\nfunction generateSessionId(): string {\n  return `session_${Date.now()}_${Math.random().toString(36).substring(2)}`;\n}\n\n// Get or create session ID\nfunction getSessionId(): string {\n  if (typeof window === 'undefined') return generateSessionId();\n  \n  let sessionId = sessionStorage.getItem('adamjames_session_id');\n  if (!sessionId) {\n    sessionId = generateSessionId();\n    sessionStorage.setItem('adamjames_session_id', sessionId);\n  }\n  return sessionId;\n}\n\n// Error tracking and reporting\nexport class ErrorTracker {\n  private static isInitialized = false;\n\n  static init(): void {\n    if (this.isInitialized || typeof window === 'undefined') return;\n\n    // Global error handler\n    window.addEventListener('error', (event) => {\n      this.reportError({\n        message: event.message,\n        stack: event.error?.stack,\n        url: event.filename || window.location.href,\n        userAgent: navigator.userAgent,\n        timestamp: Date.now(),\n        sessionId: getSessionId(),\n        severity: 'high',\n        context: {\n          line: event.lineno,\n          column: event.colno,\n          type: 'javascript_error',\n        },\n      });\n    });\n\n    // Unhandled promise rejections\n    window.addEventListener('unhandledrejection', (event) => {\n      this.reportError({\n        message: `Unhandled promise rejection: ${event.reason}`,\n        stack: event.reason?.stack,\n        url: window.location.href,\n        userAgent: navigator.userAgent,\n        timestamp: Date.now(),\n        sessionId: getSessionId(),\n        severity: 'high',\n        context: {\n          type: 'unhandled_promise_rejection',\n          reason: event.reason,\n        },\n      });\n    });\n\n    this.isInitialized = true;\n  }\n\n  static async reportError(error: ErrorReport): Promise<void> {\n    try {\n      // Log to console in development\n      if (config.environment.isDevelopment) {\n        console.error('Error reported:', error);\n      }\n\n      // Send to backend for storage\n      await fetch('/api/monitoring/error', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify(error),\n      });\n\n      // If Sentry is configured, send there too\n      if (typeof window !== 'undefined' && (window as any).Sentry) {\n        (window as any).Sentry.captureException(new Error(error.message), {\n          extra: error.context,\n          tags: {\n            severity: error.severity,\n            sessionId: error.sessionId,\n          },\n        });\n      }\n    } catch (reportingError) {\n      console.error('Failed to report error:', reportingError);\n    }\n  }\n\n  static reportClientError(\n    message: string,\n    severity: ErrorReport['severity'] = 'medium',\n    context?: Record<string, any>\n  ): void {\n    this.reportError({\n      message,\n      url: typeof window !== 'undefined' ? window.location.href : '',\n      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',\n      timestamp: Date.now(),\n      sessionId: getSessionId(),\n      severity,\n      context,\n    });\n  }\n}\n\n// Performance monitoring\nexport class PerformanceMonitor {\n  private static isInitialized = false;\n\n  static init(): void {\n    if (this.isInitialized || typeof window === 'undefined') return;\n\n    // Monitor page load performance\n    window.addEventListener('load', () => {\n      // Wait a bit for all resources to finish loading\n      setTimeout(() => {\n        this.reportPageLoadMetrics();\n      }, 1000);\n    });\n\n    // Monitor Core Web Vitals\n    this.initCoreWebVitals();\n\n    this.isInitialized = true;\n  }\n\n  private static async reportPageLoadMetrics(): Promise<void> {\n    if (!window.performance) return;\n\n    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;\n    const paint = performance.getEntriesByType('paint');\n    \n    const metrics: PerformanceMetrics = {\n      url: window.location.href,\n      loadTime: navigation.loadEventEnd - navigation.loadEventStart,\n      domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,\n      timestamp: Date.now(),\n      userAgent: navigator.userAgent,\n    };\n\n    // Add paint metrics if available\n    const firstPaint = paint.find(entry => entry.name === 'first-paint');\n    const firstContentfulPaint = paint.find(entry => entry.name === 'first-contentful-paint');\n    \n    if (firstPaint) metrics.firstPaint = firstPaint.startTime;\n    if (firstContentfulPaint) metrics.firstContentfulPaint = firstContentfulPaint.startTime;\n\n    // Add connection info if available\n    const connection = (navigator as any).connection;\n    if (connection) {\n      metrics.connectionType = connection.effectiveType;\n    }\n\n    // Add device memory if available\n    if ('deviceMemory' in navigator) {\n      metrics.deviceMemory = (navigator as any).deviceMemory;\n    }\n\n    await this.reportMetrics(metrics);\n  }\n\n  private static initCoreWebVitals(): void {\n    // Use web-vitals library if available\n    if (typeof window !== 'undefined' && (window as any).webVitals) {\n      const { getCLS, getFID, getFCP, getLCP, getTTFB } = (window as any).webVitals;\n      \n      getCLS((metric: any) => this.reportWebVital('CLS', metric));\n      getFID((metric: any) => this.reportWebVital('FID', metric));\n      getFCP((metric: any) => this.reportWebVital('FCP', metric));\n      getLCP((metric: any) => this.reportWebVital('LCP', metric));\n      getTTFB((metric: any) => this.reportWebVital('TTFB', metric));\n    }\n  }\n\n  private static async reportWebVital(name: string, metric: any): Promise<void> {\n    try {\n      await fetch('/api/monitoring/web-vitals', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify({\n          name,\n          value: metric.value,\n          delta: metric.delta,\n          id: metric.id,\n          url: window.location.href,\n          timestamp: Date.now(),\n          sessionId: getSessionId(),\n        }),\n      });\n    } catch (error) {\n      console.error('Failed to report web vital:', error);\n    }\n  }\n\n  static async reportMetrics(metrics: PerformanceMetrics): Promise<void> {\n    try {\n      await fetch('/api/monitoring/performance', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify(metrics),\n      });\n\n      // Also store in analytics\n      await AnalyticsStorage.trackEvent({\n        type: 'performance',\n        data: metrics,\n      });\n    } catch (error) {\n      console.error('Failed to report performance metrics:', error);\n    }\n  }\n\n  static measureApiCall<T>(\n    apiCall: () => Promise<T>,\n    endpoint: string\n  ): Promise<T> {\n    const startTime = Date.now();\n    \n    return apiCall().then(\n      (result) => {\n        const duration = Date.now() - startTime;\n        this.reportApiMetrics(endpoint, duration, 'success');\n        return result;\n      },\n      (error) => {\n        const duration = Date.now() - startTime;\n        this.reportApiMetrics(endpoint, duration, 'error', error.message);\n        throw error;\n      }\n    );\n  }\n\n  private static async reportApiMetrics(\n    endpoint: string,\n    duration: number,\n    status: 'success' | 'error',\n    errorMessage?: string\n  ): Promise<void> {\n    try {\n      await fetch('/api/monitoring/api-metrics', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify({\n          endpoint,\n          duration,\n          status,\n          errorMessage,\n          timestamp: Date.now(),\n          sessionId: getSessionId(),\n        }),\n      });\n    } catch (error) {\n      console.error('Failed to report API metrics:', error);\n    }\n  }\n}\n\n// User session tracking\nexport class SessionTracker {\n  private static session: UserSession | null = null;\n\n  static init(): void {\n    if (typeof window === 'undefined') return;\n\n    const sessionId = getSessionId();\n    \n    this.session = {\n      sessionId,\n      startTime: Date.now(),\n      lastActivity: Date.now(),\n      pageViews: 0,\n      events: [],\n      userAgent: navigator.userAgent,\n      referrer: document.referrer,\n      utm: this.extractUTMParameters(),\n    };\n\n    // Track page visibility changes\n    document.addEventListener('visibilitychange', () => {\n      if (document.hidden) {\n        this.trackEvent('page_hidden');\n      } else {\n        this.trackEvent('page_visible');\n      }\n    });\n\n    // Track user activity\n    ['click', 'scroll', 'keypress'].forEach(eventType => {\n      document.addEventListener(eventType, () => {\n        this.updateLastActivity();\n      }, { passive: true });\n    });\n\n    // Save session periodically\n    setInterval(() => {\n      this.saveSession();\n    }, 30000); // Every 30 seconds\n\n    // Save session on page unload\n    window.addEventListener('beforeunload', () => {\n      this.saveSession();\n    });\n  }\n\n  private static extractUTMParameters(): Record<string, string> {\n    const params = new URLSearchParams(window.location.search);\n    const utm: Record<string, string> = {};\n    \n    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {\n      const value = params.get(param);\n      if (value) utm[param] = value;\n    });\n\n    return utm;\n  }\n\n  static trackPageView(url: string, title: string): void {\n    if (!this.session) return;\n\n    this.session.pageViews++;\n    this.trackEvent('page_view', { url, title });\n  }\n\n  static trackEvent(eventType: string, data?: any): void {\n    if (!this.session) return;\n\n    this.session.events.push({\n      type: eventType,\n      data,\n      timestamp: Date.now(),\n    });\n\n    this.updateLastActivity();\n  }\n\n  private static updateLastActivity(): void {\n    if (this.session) {\n      this.session.lastActivity = Date.now();\n    }\n  }\n\n  private static async saveSession(): Promise<void> {\n    if (!this.session) return;\n\n    try {\n      await fetch('/api/monitoring/session', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify(this.session),\n      });\n    } catch (error) {\n      console.error('Failed to save session:', error);\n    }\n  }\n\n  static getSession(): UserSession | null {\n    return this.session;\n  }\n}\n\n// Initialize all monitoring systems\nexport function initMonitoring(): void {\n  if (typeof window === 'undefined') return;\n\n  ErrorTracker.init();\n  PerformanceMonitor.init();\n  SessionTracker.init();\n\n  // Initialize Sentry if configured\n  if (process.env.NEXT_PUBLIC_SENTRY_DSN) {\n    import('@sentry/nextjs').then((Sentry) => {\n      Sentry.init({\n        dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,\n        environment: config.environment.nodeEnv,\n        tracesSampleRate: config.environment.isProduction ? 0.1 : 1.0,\n        beforeSend(event) {\n          // Filter out irrelevant errors\n          if (event.exception) {\n            const error = event.exception.values?.[0];\n            if (error?.value?.includes('Non-Error promise rejection')) {\n              return null;\n            }\n          }\n          return event;\n        },\n      });\n    });\n  }\n}\n\n// Health check endpoint data\nexport async function getHealthStatus(): Promise<{\n  status: 'healthy' | 'degraded' | 'unhealthy';\n  checks: Record<string, { status: 'pass' | 'fail'; message?: string; responseTime?: number }>;\n  timestamp: number;\n}> {\n  const checks: Record<string, any> = {};\n  \n  // Database health check\n  try {\n    const start = Date.now();\n    await fetch('/api/health/database');\n    checks.database = {\n      status: 'pass',\n      responseTime: Date.now() - start,\n    };\n  } catch (error) {\n    checks.database = {\n      status: 'fail',\n      message: error instanceof Error ? error.message : 'Unknown error',\n    };\n  }\n\n  // Email service health check\n  try {\n    const start = Date.now();\n    await fetch('/api/health/email');\n    checks.email = {\n      status: 'pass',\n      responseTime: Date.now() - start,\n    };\n  } catch (error) {\n    checks.email = {\n      status: 'fail',\n      message: error instanceof Error ? error.message : 'Unknown error',\n    };\n  }\n\n  // Determine overall status\n  const failedChecks = Object.values(checks).filter(check => check.status === 'fail');\n  let status: 'healthy' | 'degraded' | 'unhealthy';\n  \n  if (failedChecks.length === 0) {\n    status = 'healthy';\n  } else if (failedChecks.length <= Object.keys(checks).length / 2) {\n    status = 'degraded';\n  } else {\n    status = 'unhealthy';\n  }\n\n  return {\n    status,\n    checks,\n    timestamp: Date.now(),\n  };\n}\n\nexport {\n  ErrorTracker,\n  PerformanceMonitor,\n  SessionTracker,\n};\n\nexport default {\n  init: initMonitoring,\n  ErrorTracker,\n  PerformanceMonitor,\n  SessionTracker,\n  getHealthStatus,\n};"
+import { config } from '@/lib/config';
+import { AnalyticsStorage } from '@/lib/api/storage';
+
+interface ErrorReport {
+    message: string;
+    stack?: string;
+    url: string;
+    userAgent: string;
+    timestamp: number;
+    userId?: string;
+    sessionId?: string;
+    severity: 'low' | 'medium' | 'high' | 'critical';
+    context?: Record<string, any>;
+}
+
+interface PerformanceMetrics {
+    url: string;
+    loadTime: number;
+    domContentLoaded: number;
+    firstPaint?: number;
+    firstContentfulPaint?: number;
+    largestContentfulPaint?: number;
+    cumulativeLayoutShift?: number;
+    firstInputDelay?: number;
+    timeToInteractive?: number;
+    timestamp: number;
+    userAgent: string;
+    connectionType?: string;
+    deviceMemory?: number;
+}
+
+interface UserSession {
+    sessionId: string;
+    userId?: string;
+    startTime: number;
+    lastActivity: number;
+    pageViews: number;
+    events: any[];
+    userAgent: string;
+    referrer?: string;
+    utm?: Record<string, string>;
+}
+
+// Generate a unique session ID
+function generateSessionId(): string {
+    return `session_${Date.now()}_${Math.random().toString(36).substring(2)}`;
+}
+
+// Get or create session ID
+function getSessionId(): string {
+    if (typeof window === 'undefined') return generateSessionId();
+
+    let sessionId = sessionStorage.getItem('adamjames_session_id');
+    if (!sessionId) {
+        sessionId = generateSessionId();
+        sessionStorage.setItem('adamjames_session_id', sessionId);
+    }
+    return sessionId;
+}
+
+// Error tracking and reporting
+export class ErrorTracker {
+    private static isInitialized = false;
+
+    static init(): void {
+        if (this.isInitialized || typeof window === 'undefined') return;
+
+        // Global error handler
+        window.addEventListener('error', (event) => {
+            this.reportError({
+                message: event.message,
+                stack: event.error?.stack,
+                url: event.filename || window.location.href,
+                userAgent: navigator.userAgent,
+                timestamp: Date.now(),
+                sessionId: getSessionId(),
+                severity: 'high',
+                context: {
+                    line: event.lineno,
+                    column: event.colno,
+                    type: 'javascript_error',
+                },
+            });
+        });
+
+        // Unhandled promise rejections
+        window.addEventListener('unhandledrejection', (event) => {
+            this.reportError({
+                message: `Unhandled promise rejection: ${event.reason}`,
+                stack: event.reason?.stack,
+                url: window.location.href,
+                userAgent: navigator.userAgent,
+                timestamp: Date.now(),
+                sessionId: getSessionId(),
+                severity: 'high',
+                context: {
+                    type: 'unhandled_promise_rejection',
+                    reason: event.reason,
+                },
+            });
+        });
+
+        this.isInitialized = true;
+    }
+
+    static async reportError(error: ErrorReport): Promise<void> {
+        try {
+            // Log to console in development
+            if (config.environment.isDevelopment) {
+                console.error('Error reported:', error);
+            }
+
+            // Send to backend for storage
+            await fetch('/api/monitoring/error', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(error),
+            });
+
+            // If Sentry is configured, send there too
+            if (typeof window !== 'undefined' && (window as any).Sentry) {
+                (window as any).Sentry.captureException(new Error(error.message), {
+                    extra: error.context,
+                    tags: {
+                        severity: error.severity,
+                        sessionId: error.sessionId,
+                    },
+                });
+            }
+        } catch (reportingError) {
+            console.error('Failed to report error:', reportingError);
+        }
+    }
+
+    static reportClientError(
+        message: string,
+        severity: ErrorReport['severity'] = 'medium',
+        context?: Record<string, any>
+    ): void {
+        this.reportError({
+            message,
+            url: typeof window !== 'undefined' ? window.location.href : '',
+            userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+            timestamp: Date.now(),
+            sessionId: getSessionId(),
+            severity,
+            context,
+        });
+    }
+}
+
+// Performance monitoring
+export class PerformanceMonitor {
+    private static isInitialized = false;
+
+    static init(): void {
+        if (this.isInitialized || typeof window === 'undefined') return;
+
+        // Monitor page load performance
+        window.addEventListener('load', () => {
+            // Wait a bit for all resources to finish loading
+            setTimeout(() => {
+                this.reportPageLoadMetrics();
+            }, 1000);
+        });
+
+        // Monitor Core Web Vitals
+        this.initCoreWebVitals();
+
+        this.isInitialized = true;
+    }
+
+    private static async reportPageLoadMetrics(): Promise<void> {
+        if (!window.performance) return;
+
+        const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+        const paint = performance.getEntriesByType('paint');
+
+        const metrics: PerformanceMetrics = {
+            url: window.location.href,
+            loadTime: navigation.loadEventEnd - navigation.loadEventStart,
+            domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent,
+        };
+
+        // Add paint metrics if available
+        const firstPaint = paint.find(entry => entry.name === 'first-paint');
+        const firstContentfulPaint = paint.find(entry => entry.name === 'first-contentful-paint');
+
+        if (firstPaint) metrics.firstPaint = firstPaint.startTime;
+        if (firstContentfulPaint) metrics.firstContentfulPaint = firstContentfulPaint.startTime;
+
+        // Add connection info if available
+        const connection = (navigator as any).connection;
+        if (connection) {
+            metrics.connectionType = connection.effectiveType;
+        }
+
+        // Add device memory if available
+        if ('deviceMemory' in navigator) {
+            metrics.deviceMemory = (navigator as any).deviceMemory;
+        }
+
+        await this.reportMetrics(metrics);
+    }
+
+    private static initCoreWebVitals(): void {
+        // Use web-vitals library if available
+        if (typeof window !== 'undefined' && (window as any).webVitals) {
+            const { getCLS, getFID, getFCP, getLCP, getTTFB } = (window as any).webVitals;
+
+            getCLS((metric: any) => this.reportWebVital('CLS', metric));
+            getFID((metric: any) => this.reportWebVital('FID', metric));
+            getFCP((metric: any) => this.reportWebVital('FCP', metric));
+            getLCP((metric: any) => this.reportWebVital('LCP', metric));
+            getTTFB((metric: any) => this.reportWebVital('TTFB', metric));
+        }
+    }
+
+    private static async reportWebVital(name: string, metric: any): Promise<void> {
+        try {
+            await fetch('/api/monitoring/web-vitals', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    value: metric.value,
+                    delta: metric.delta,
+                    id: metric.id,
+                    url: window.location.href,
+                    timestamp: Date.now(),
+                    sessionId: getSessionId(),
+                }),
+            });
+        } catch (error) {
+            console.error('Failed to report web vital:', error);
+        }
+    }
+
+    static async reportMetrics(metrics: PerformanceMetrics): Promise<void> {
+        try {
+            await fetch('/api/monitoring/performance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(metrics),
+            });
+
+            // Also store in analytics
+            await AnalyticsStorage.trackEvent({
+                type: 'performance',
+                data: metrics,
+            });
+        } catch (error) {
+            console.error('Failed to report performance metrics:', error);
+        }
+    }
+
+    static measureApiCall<T>(
+        apiCall: () => Promise<T>,
+        endpoint: string
+    ): Promise<T> {
+        const startTime = Date.now();
+
+        return apiCall().then(
+            (result) => {
+                const duration = Date.now() - startTime;
+                this.reportApiMetrics(endpoint, duration, 'success');
+                return result;
+            },
+            (error) => {
+                const duration = Date.now() - startTime;
+                this.reportApiMetrics(endpoint, duration, 'error', error.message);
+                throw error;
+            }
+        );
+    }
+
+    private static async reportApiMetrics(
+        endpoint: string,
+        duration: number,
+        status: 'success' | 'error',
+        errorMessage?: string
+    ): Promise<void> {
+        try {
+            await fetch('/api/monitoring/api-metrics', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    endpoint,
+                    duration,
+                    status,
+                    errorMessage,
+                    timestamp: Date.now(),
+                    sessionId: getSessionId(),
+                }),
+            });
+        } catch (error) {
+            console.error('Failed to report API metrics:', error);
+        }
+    }
+}
+
+// User session tracking
+export class SessionTracker {
+    private static session: UserSession | null = null;
+
+    static init(): void {
+        if (typeof window === 'undefined') return;
+
+        const sessionId = getSessionId();
+
+        this.session = {
+            sessionId,
+            startTime: Date.now(),
+            lastActivity: Date.now(),
+            pageViews: 0,
+            events: [],
+            userAgent: navigator.userAgent,
+            referrer: document.referrer,
+            utm: this.extractUTMParameters(),
+        };
+
+        // Track page visibility changes
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                this.trackEvent('page_hidden');
+            } else {
+                this.trackEvent('page_visible');
+            }
+        });
+
+        // Track user activity
+        ['click', 'scroll', 'keypress'].forEach(eventType => {
+            document.addEventListener(eventType, () => {
+                this.updateLastActivity();
+            }, { passive: true });
+        });
+
+        // Save session periodically
+        setInterval(() => {
+            this.saveSession();
+        }, 30000); // Every 30 seconds
+
+        // Save session on page unload
+        window.addEventListener('beforeunload', () => {
+            this.saveSession();
+        });
+    }
+
+    private static extractUTMParameters(): Record<string, string> {
+        const params = new URLSearchParams(window.location.search);
+        const utm: Record<string, string> = {};
+
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+            const value = params.get(param);
+            if (value) utm[param] = value;
+        });
+
+        return utm;
+    }
+
+    static trackPageView(url: string, title: string): void {
+        if (!this.session) return;
+
+        this.session.pageViews++;
+        this.trackEvent('page_view', { url, title });
+    }
+
+    static trackEvent(eventType: string, data?: any): void {
+        if (!this.session) return;
+
+        this.session.events.push({
+            type: eventType,
+            data,
+            timestamp: Date.now(),
+        });
+
+        this.updateLastActivity();
+    }
+
+    private static updateLastActivity(): void {
+        if (this.session) {
+            this.session.lastActivity = Date.now();
+        }
+    }
+
+    private static async saveSession(): Promise<void> {
+        if (!this.session) return;
+
+        try {
+            await fetch('/api/monitoring/session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.session),
+            });
+        } catch (error) {
+            console.error('Failed to save session:', error);
+        }
+    }
+
+    static getSession(): UserSession | null {
+        return this.session;
+    }
+}
+
+// Initialize all monitoring systems
+export function initMonitoring(): void {
+    if (typeof window === 'undefined') return;
+
+    ErrorTracker.init();
+    PerformanceMonitor.init();
+    SessionTracker.init();
+
+    // Initialize Sentry if configured
+    /*
+    if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+      import('@sentry/nextjs').then((Sentry) => {
+        Sentry.init({
+          dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+          environment: config.environment.nodeEnv,
+          tracesSampleRate: config.environment.isProduction ? 0.1 : 1.0,
+          beforeSend(event) {
+            // Filter out irrelevant errors
+            if (event.exception) {
+              const error = event.exception.values?.[0];
+              if (error?.value?.includes('Non-Error promise rejection')) {
+                return null;
+              }
+            }
+            return event;
+          },
+        });
+      });
+    }
+    */
+}
+
+// Health check endpoint data
+export async function getHealthStatus(): Promise<{
+    status: 'healthy' | 'degraded' | 'unhealthy';
+    checks: Record<string, { status: 'pass' | 'fail'; message?: string; responseTime?: number }>;
+    timestamp: number;
+}> {
+    const checks: Record<string, any> = {};
+
+    // Database health check
+    try {
+        const start = Date.now();
+        await fetch('/api/health/database');
+        checks.database = {
+            status: 'pass',
+            responseTime: Date.now() - start,
+        };
+    } catch (error) {
+        checks.database = {
+            status: 'fail',
+            message: error instanceof Error ? error.message : 'Unknown error',
+        };
+    }
+
+    // Email service health check
+    try {
+        const start = Date.now();
+        await fetch('/api/health/email');
+        checks.email = {
+            status: 'pass',
+            responseTime: Date.now() - start,
+        };
+    } catch (error) {
+        checks.email = {
+            status: 'fail',
+            message: error instanceof Error ? error.message : 'Unknown error',
+        };
+    }
+
+    // Determine overall status
+    const failedChecks = Object.values(checks).filter(check => check.status === 'fail');
+    let status: 'healthy' | 'degraded' | 'unhealthy';
+
+    if (failedChecks.length === 0) {
+        status = 'healthy';
+    } else if (failedChecks.length <= Object.keys(checks).length / 2) {
+        status = 'degraded';
+    } else {
+        status = 'unhealthy';
+    }
+
+    return {
+        status,
+        checks,
+        timestamp: Date.now(),
+    };
+}
+
+export default {
+    init: initMonitoring,
+    ErrorTracker,
+    PerformanceMonitor,
+    SessionTracker,
+    getHealthStatus,
+};

@@ -20,6 +20,7 @@
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.13",
+    "@sendgrid/mail": "^8.1.6",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
@@ -40,6 +41,7 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.58.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

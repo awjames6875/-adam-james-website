@@ -17,31 +17,32 @@ export const metadata: Metadata = {
 export default function BusinessesPage() {
   return (
     <>
-      <SchemaMarkup 
-        type="Organization"
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Adam James Tulsa Business Portfolio",
-          "description": "Comprehensive business services including corporate housing, mental health services, business consulting, and real estate development in Oklahoma",
-          "url": "https://adamjamestulsa.com/businesses",
-          "founder": {
-            "@type": "Person",
-            "name": "Adam James"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Tulsa",
-            "addressRegion": "Oklahoma",
-            "addressCountry": "United States"
-          },
-          "serviceArea": {
-            "@type": "State",
-            "name": "Oklahoma"
+      <SchemaMarkup
+        additionalSchemas={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Adam James Tulsa Business Portfolio",
+            "description": "Comprehensive business services including corporate housing, mental health services, business consulting, and real estate development in Oklahoma",
+            "url": "https://adamjamestulsa.com/businesses",
+            "founder": {
+              "@type": "Person",
+              "name": "Adam James"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Tulsa",
+              "addressRegion": "Oklahoma",
+              "addressCountry": "United States"
+            },
+            "serviceArea": {
+              "@type": "State",
+              "name": "Oklahoma"
+            }
           }
-        }}
+        ]}
       />
-      
+
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
         {/* Hero Section */}
         <section className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -50,29 +51,29 @@ export default function BusinessesPage() {
               Adam James Tulsa Business Portfolio
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-              Transforming communities across Oklahoma through innovative business solutions, 
+              Transforming communities across Oklahoma through innovative business solutions,
               mental health advocacy, and strategic investments that create lasting positive impact.
             </p>
           </div>
         </section>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          
+
           {/* Introduction */}
           <section className="mb-16">
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                The Adam James Tulsa business portfolio represents more than a decade of strategic 
-                entrepreneurship, innovative problem-solving, and unwavering commitment to community 
-                development. Each venture within our diverse portfolio addresses critical needs 
-                within Oklahoma's business landscape while creating sustainable value for clients, 
+                The Adam James Tulsa business portfolio represents more than a decade of strategic
+                entrepreneurship, innovative problem-solving, and unwavering commitment to community
+                development. Each venture within our diverse portfolio addresses critical needs
+                within Oklahoma&apos;s business landscape while creating sustainable value for clients,
                 stakeholders, and the broader community.
               </p>
-              
+
               <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                From corporate housing solutions that support Oklahoma's growing business sector 
-                to comprehensive mental health services that address critical community needs, 
-                every business venture reflects our core mission: transforming lives and communities 
+                From corporate housing solutions that support Oklahoma&apos;s growing business sector
+                to comprehensive mental health services that address critical community needs,
+                every business venture reflects our core mission: transforming lives and communities
                 through excellence, innovation, and social responsibility.
               </p>
             </div>
@@ -83,14 +84,14 @@ export default function BusinessesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
               Our Business Divisions
             </h2>
-            
+
             <div className="grid lg:grid-cols-2 gap-12">
-              
+
               {/* Service-Based Businesses */}
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Service Excellence</h3>
                 <div className="space-y-6">
-                  
+
                   <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
                     <div className="flex items-start">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 mt-1">
@@ -101,12 +102,26 @@ export default function BusinessesPage() {
                       <div>
                         <h4 className="text-xl font-semibold text-gray-900 mb-2">Corporate Housing Solutions</h4>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Premier corporate housing services designed to meet the evolving needs of 
-                          businesses operating in Tulsa and throughout Oklahoma. Our comprehensive 
+                          Premier corporate housing services designed to meet the evolving needs of
+                          businesses operating in Tulsa and throughout Oklahoma. Our comprehensive
                           approach combines luxury accommodations with personalized service.
                         </p>
-                        <Link 
-                          href="/services/corporate-housing" 
+                        <div className="mb-4">
+                          <div className="relative w-full mb-3" style={{ paddingBottom: '56.25%' }}>
+                            <iframe
+                              className="absolute top-0 left-0 w-full h-full rounded-lg"
+                              src="https://www.youtube.com/embed/SuXFK-EXjTk"
+                              title="How Integrity Corporate Housing Was Born"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            ></iframe>
+                          </div>
+                          <p className="text-sm text-gray-600 italic mb-3">
+                            Watch: From homelessness to $2M/year through corporate rentals
+                          </p>
+                        </div>
+                        <Link
+                          href="/services/corporate-housing"
                           className="text-blue-600 font-medium hover:text-blue-700 transition-colors"
                         >
                           Learn More →
@@ -125,12 +140,12 @@ export default function BusinessesPage() {
                       <div>
                         <h4 className="text-xl font-semibold text-gray-900 mb-2">Mental Health Services</h4>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Culturally sensitive mental health programs that address the unique challenges 
-                          facing Oklahoma communities. Our innovative approach combines evidence-based 
+                          Culturally sensitive mental health programs that address the unique challenges
+                          facing Oklahoma communities. Our innovative approach combines evidence-based
                           treatment with community-centered care delivery.
                         </p>
-                        <Link 
-                          href="/services/mental-health" 
+                        <Link
+                          href="/services/mental-health"
                           className="text-green-600 font-medium hover:text-green-700 transition-colors"
                         >
                           Learn More →
@@ -149,12 +164,12 @@ export default function BusinessesPage() {
                       <div>
                         <h4 className="text-xl font-semibold text-gray-900 mb-2">Business Consulting</h4>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Strategic business consulting services that help entrepreneurs and established 
-                          companies achieve breakthrough results through customized solutions and 
+                          Strategic business consulting services that help entrepreneurs and established
+                          companies achieve breakthrough results through customized solutions and
                           proven methodologies.
                         </p>
-                        <Link 
-                          href="/services/business-consulting" 
+                        <Link
+                          href="/services/business-consulting"
                           className="text-purple-600 font-medium hover:text-purple-700 transition-colors"
                         >
                           Learn More →
@@ -170,7 +185,7 @@ export default function BusinessesPage() {
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Investment & Development</h3>
                 <div className="space-y-6">
-                  
+
                   <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
                     <div className="flex items-start">
                       <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4 mt-1">
@@ -181,12 +196,26 @@ export default function BusinessesPage() {
                       <div>
                         <h4 className="text-xl font-semibold text-gray-900 mb-2">Real Estate Development</h4>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Strategic real estate investments and development projects that revitalize 
-                          communities while generating sustainable returns. Focus on mixed-use 
+                          Strategic real estate investments and development projects that revitalize
+                          communities while generating sustainable returns. Focus on mixed-use
                           developments that enhance community livability.
                         </p>
-                        <Link 
-                          href="/services/real-estate" 
+                        <div className="mb-4">
+                          <div className="relative w-full mb-3" style={{ paddingBottom: '56.25%' }}>
+                            <iframe
+                              className="absolute top-0 left-0 w-full h-full rounded-lg"
+                              src="https://www.youtube.com/embed/-ZloJY6hLyM"
+                              title="Surviving the 2008 Real Estate Crash"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            ></iframe>
+                          </div>
+                          <p className="text-sm text-gray-600 italic mb-3">
+                            Watch: Navigating the 2008 real estate crash (October 2008 interview)
+                          </p>
+                        </div>
+                        <Link
+                          href="/services/real-estate"
                           className="text-orange-600 font-medium hover:text-orange-700 transition-colors"
                         >
                           Learn More →
@@ -205,12 +234,12 @@ export default function BusinessesPage() {
                       <div>
                         <h4 className="text-xl font-semibold text-gray-900 mb-2">Investment Strategy</h4>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Sophisticated investment strategies that balance risk and return while 
-                          creating value for clients and communities. Expertise in both traditional 
+                          Sophisticated investment strategies that balance risk and return while
+                          creating value for clients and communities. Expertise in both traditional
                           and alternative investment vehicles.
                         </p>
-                        <Link 
-                          href="/services/investment-strategy" 
+                        <Link
+                          href="/services/investment-strategy"
                           className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
                         >
                           Learn More →
@@ -229,12 +258,12 @@ export default function BusinessesPage() {
                       <div>
                         <h4 className="text-xl font-semibold text-gray-900 mb-2">Innovation Consulting</h4>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                          Cutting-edge innovation consulting that helps traditional businesses 
-                          adapt to changing markets through technology adoption, process 
+                          Cutting-edge innovation consulting that helps traditional businesses
+                          adapt to changing markets through technology adoption, process
                           optimization, and strategic transformation.
                         </p>
-                        <Link 
-                          href="/services/innovation-consulting" 
+                        <Link
+                          href="/services/innovation-consulting"
                           className="text-teal-600 font-medium hover:text-teal-700 transition-colors"
                         >
                           Learn More →
@@ -254,10 +283,10 @@ export default function BusinessesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
               Impact Across Oklahoma
             </h2>
-            
+
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-white">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                
+
                 <div>
                   <div className="text-4xl font-bold mb-2">500+</div>
                   <div className="text-blue-100">Businesses Served</div>
@@ -299,33 +328,33 @@ export default function BusinessesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Our Business Philosophy
             </h2>
-            
+
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed mb-6">
-                At the foundation of every Adam James Tulsa business venture lies a commitment 
-                to sustainable value creation that extends far beyond traditional profit metrics. 
-                We believe that true business success is measured not only by financial performance 
+                At the foundation of every Adam James Tulsa business venture lies a commitment
+                to sustainable value creation that extends far beyond traditional profit metrics.
+                We believe that true business success is measured not only by financial performance
                 but by the positive impact created within the communities we serve.
               </p>
-              
+
               <p className="text-gray-700 leading-relaxed mb-6">
-                This philosophy drives our approach to business development, client relationships, 
-                and community engagement. Every project, every service, and every investment 
-                decision is evaluated through the lens of long-term sustainability, ethical 
+                This philosophy drives our approach to business development, client relationships,
+                and community engagement. Every project, every service, and every investment
+                decision is evaluated through the lens of long-term sustainability, ethical
                 responsibility, and positive social impact.
               </p>
-              
+
               <p className="text-gray-700 leading-relaxed mb-6">
-                Our integrated approach enables synergies across business divisions, creating 
-                value that exceeds the sum of individual parts. For example, our real estate 
-                development projects often incorporate spaces for mental health services, 
-                while our business consulting work helps clients develop more socially 
+                Our integrated approach enables synergies across business divisions, creating
+                value that exceeds the sum of individual parts. For example, our real estate
+                development projects often incorporate spaces for mental health services,
+                while our business consulting work helps clients develop more socially
                 responsible practices that benefit their communities.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mt-12">
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -334,7 +363,7 @@ export default function BusinessesPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Integrity First</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Every business decision is guided by unwavering ethical standards 
+                  Every business decision is guided by unwavering ethical standards
                   and transparent communication with all stakeholders.
                 </p>
               </div>
@@ -347,7 +376,7 @@ export default function BusinessesPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Innovation Focus</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Continuous innovation drives our ability to solve complex problems 
+                  Continuous innovation drives our ability to solve complex problems
                   and create new opportunities for growth and impact.
                 </p>
               </div>
@@ -360,7 +389,7 @@ export default function BusinessesPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Community Impact</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Sustainable community development is central to our mission, 
+                  Sustainable community development is central to our mission,
                   creating lasting positive change that benefits future generations.
                 </p>
               </div>
@@ -373,19 +402,19 @@ export default function BusinessesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Industry Expertise and Specializations
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
-              
+
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Primary Industries</h3>
                 <div className="space-y-4">
-                  
+
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Healthcare & Mental Health</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Comprehensive mental health service delivery, healthcare innovation, 
+                        Comprehensive mental health service delivery, healthcare innovation,
                         and wellness program development across urban and rural communities.
                       </p>
                     </div>
@@ -396,7 +425,7 @@ export default function BusinessesPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Real Estate & Development</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Commercial and residential development, property management, 
+                        Commercial and residential development, property management,
                         and strategic real estate investment across Oklahoma markets.
                       </p>
                     </div>
@@ -407,7 +436,7 @@ export default function BusinessesPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Technology & Innovation</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Digital transformation consulting, technology integration, 
+                        Digital transformation consulting, technology integration,
                         and innovation strategy for traditional and emerging businesses.
                       </p>
                     </div>
@@ -418,7 +447,7 @@ export default function BusinessesPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Hospitality & Corporate Services</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Corporate housing solutions, executive relocation services, 
+                        Corporate housing solutions, executive relocation services,
                         and premium hospitality experiences for business travelers.
                       </p>
                     </div>
@@ -430,13 +459,13 @@ export default function BusinessesPage() {
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Specialized Services</h3>
                 <div className="space-y-4">
-                  
+
                   <div className="flex items-start">
                     <div className="w-2 h-2 bg-indigo-600 rounded-full mt-3 mr-4"></div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Leadership Development</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Executive coaching, leadership training programs, and organizational 
+                        Executive coaching, leadership training programs, and organizational
                         development initiatives for emerging and established leaders.
                       </p>
                     </div>
@@ -447,7 +476,7 @@ export default function BusinessesPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Strategic Planning</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Comprehensive strategic planning, market analysis, and business 
+                        Comprehensive strategic planning, market analysis, and business
                         development strategies for companies across multiple industries.
                       </p>
                     </div>
@@ -458,7 +487,7 @@ export default function BusinessesPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Market Expansion</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Geographic expansion strategies, market entry analysis, and 
+                        Geographic expansion strategies, market entry analysis, and
                         growth acceleration programs for regional and national companies.
                       </p>
                     </div>
@@ -469,7 +498,7 @@ export default function BusinessesPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Investment Advisory</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Portfolio management, alternative investments, and strategic 
+                        Portfolio management, alternative investments, and strategic
                         investment guidance for individuals and institutional clients.
                       </p>
                     </div>
@@ -486,22 +515,22 @@ export default function BusinessesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Strategic Partnerships and Collaborations
             </h2>
-            
+
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-gray-700 leading-relaxed">
-                The success of Adam James Tulsa's business portfolio is amplified through 
-                strategic partnerships with leading organizations across Oklahoma and beyond. 
-                These collaborations enable us to leverage complementary expertise, expand 
+                The success of Adam James Tulsa&apos;s business portfolio is amplified through
+                strategic partnerships with leading organizations across Oklahoma and beyond.
+                These collaborations enable us to leverage complementary expertise, expand
                 our service capabilities, and create more comprehensive solutions for our clients.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              
+
               <div className="text-center p-6 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-2">Healthcare Systems</h4>
                 <p className="text-sm text-gray-600">
-                  Partnerships with major healthcare providers to expand mental health 
+                  Partnerships with major healthcare providers to expand mental health
                   service delivery across Oklahoma.
                 </p>
               </div>
@@ -509,7 +538,7 @@ export default function BusinessesPage() {
               <div className="text-center p-6 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-2">Educational Institutions</h4>
                 <p className="text-sm text-gray-600">
-                  Collaborations with universities and colleges to develop leadership 
+                  Collaborations with universities and colleges to develop leadership
                   and entrepreneurship programs.
                 </p>
               </div>
@@ -517,7 +546,7 @@ export default function BusinessesPage() {
               <div className="text-center p-6 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-2">Technology Partners</h4>
                 <p className="text-sm text-gray-600">
-                  Strategic alliances with technology companies to drive innovation 
+                  Strategic alliances with technology companies to drive innovation
                   and digital transformation initiatives.
                 </p>
               </div>
@@ -525,7 +554,7 @@ export default function BusinessesPage() {
               <div className="text-center p-6 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-2">Community Organizations</h4>
                 <p className="text-sm text-gray-600">
-                  Ongoing partnerships with nonprofits and community groups to 
+                  Ongoing partnerships with nonprofits and community groups to
                   maximize social impact and community benefit.
                 </p>
               </div>
@@ -538,28 +567,28 @@ export default function BusinessesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Vision for the Future
             </h2>
-            
+
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-gray-700 leading-relaxed mb-6">
-                Looking ahead, the Adam James Tulsa business portfolio continues to evolve 
-                in response to emerging opportunities and changing community needs. Our 
-                strategic vision encompasses both organic growth within existing business 
-                lines and selective expansion into new areas that align with our core 
+                Looking ahead, the Adam James Tulsa business portfolio continues to evolve
+                in response to emerging opportunities and changing community needs. Our
+                strategic vision encompasses both organic growth within existing business
+                lines and selective expansion into new areas that align with our core
                 mission of positive community impact.
               </p>
-              
+
               <p className="text-gray-700 leading-relaxed mb-6">
-                Planned initiatives include scaling successful service models to new 
-                geographic markets, developing innovative technology solutions that 
-                enhance service delivery, and creating new partnership structures that 
+                Planned initiatives include scaling successful service models to new
+                geographic markets, developing innovative technology solutions that
+                enhance service delivery, and creating new partnership structures that
                 amplify our collective impact across Oklahoma and the broader region.
               </p>
-              
+
               <p className="text-gray-700 leading-relaxed">
-                Central to our future vision is the continued integration of sustainability 
-                principles, social responsibility, and community engagement into every aspect 
-                of our business operations. We envision a future where business success and 
-                community prosperity are inseparably linked, creating a model for ethical 
+                Central to our future vision is the continued integration of sustainability
+                principles, social responsibility, and community engagement into every aspect
+                of our business operations. We envision a future where business success and
+                community prosperity are inseparably linked, creating a model for ethical
                 entrepreneurship that can be replicated across diverse markets and industries.
               </p>
             </div>
@@ -571,19 +600,19 @@ export default function BusinessesPage() {
               Partner with Adam James Tulsa
             </h2>
             <p className="text-blue-100 mb-6 leading-relaxed text-lg">
-              Whether you're seeking business consulting, exploring investment opportunities, 
-              or looking to make a positive impact in your community, we invite you to 
+              Whether you're seeking business consulting, exploring investment opportunities,
+              or looking to make a positive impact in your community, we invite you to
               explore partnership possibilities with our diverse business portfolio.
             </p>
             <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
                 Schedule Consultation
               </Link>
-              <Link 
-                href="/services" 
+              <Link
+                href="/services"
                 className="inline-block border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 Explore Services

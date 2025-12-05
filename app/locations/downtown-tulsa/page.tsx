@@ -1,374 +1,399 @@
-import type { Metadata } from 'next'
+import { Metadata } from 'next'
+import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema'
 
 export const metadata: Metadata = {
-  title: 'Downtown Tulsa Entrepreneur Adam James | #1 Business Leader in Oklahoma',
-  description: 'Adam James is the premier downtown Tulsa entrepreneur providing expert business consulting, corporate housing, mental health services, and real estate investment. Serving Arts District, Brady District, and Central Business District with proven results.',
-  keywords: 'downtown Tulsa entrepreneur Adam James, Adam James downtown Tulsa, Tulsa downtown business leader, Arts District business consultant, Brady District entrepreneur, Central Business District services, downtown Tulsa corporate housing, Greenwood District business development',
+  title: 'Downtown Tulsa Entrepreneur Adam James | Business Services & Community Leadership',
+  description: 'Adam James provides business consulting, mental health services, and corporate housing solutions in Downtown Tulsa. Serving the heart of Tulsa\'s business community with excellence and compassion.',
+  keywords: 'downtown Tulsa entrepreneur Adam James, Adam James downtown Tulsa business, downtown Tulsa mental health services, downtown Tulsa corporate housing, Tulsa Arts District business services',
   openGraph: {
-    title: 'Downtown Tulsa Entrepreneur Adam James | #1 Business Leader in Oklahoma',
-    description: 'Premier downtown Tulsa entrepreneur Adam James provides comprehensive business services including corporate housing, mental health services, and strategic consulting across all downtown districts.',
-    type: 'website',
-    locale: 'en_US',
+    title: 'Downtown Tulsa Entrepreneur Adam James | Business Services',
+    description: 'Adam James provides business consulting, mental health services, and corporate housing solutions in Downtown Tulsa. Serving the heart of Tulsa\'s business community.',
     url: 'https://adamjamestulsa.com/locations/downtown-tulsa',
-    siteName: 'Adam James Tulsa',
-    images: [{
-      url: 'https://adamjamestulsa.com/images/adam-james-downtown-tulsa.jpg',
+    images: [
+      {
+        url: '/images/downtown-tulsa-adam-james.jpg',
       width: 1200,
       height: 630,
-      alt: 'Adam James - Downtown Tulsa Business Leader and Entrepreneur'
-    }]
+        alt: 'Adam James Downtown Tulsa Business Services',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Downtown Tulsa Entrepreneur Adam James | #1 Business Leader',
-    description: 'Premier downtown Tulsa entrepreneur providing corporate housing, mental health services, and business consulting across all downtown districts.',
-    images: ['https://adamjamestulsa.com/images/adam-james-downtown-tulsa.jpg']
+    title: 'Downtown Tulsa Entrepreneur Adam James',
+    description: 'Business consulting, mental health services, and corporate housing solutions in Downtown Tulsa.',
+    images: ['/images/downtown-tulsa-adam-james.jpg'],
   },
-  alternates: {
-    canonical: 'https://adamjamestulsa.com/locations/downtown-tulsa'
+}
+
+const downtownTulsaBusinessData = {
+  name: 'Adam James - Downtown Tulsa Services',
+  description: 'Business consulting, mental health services, and corporate housing solutions in Downtown Tulsa, Oklahoma. Serving the heart of Tulsa\'s business community.',
+  url: 'https://adamjamestulsa.com/locations/downtown-tulsa',
+  address: {
+    addressLocality: 'Downtown Tulsa',
+    addressRegion: 'OK',
+    addressCountry: 'US',
+    postalCode: '74103'
   },
-  other: {
-    'geo.region': 'US-OK',
-    'geo.placename': 'Downtown Tulsa, Oklahoma',
-    'geo.position': '36.1540;-95.9928',
-    'ICBM': '36.1540, -95.9928'
+  geo: {
+    latitude: 36.1540,
+    longitude: -95.9928
+  },
+  sameAs: [
+    'https://linkedin.com/in/adamjamestulsa',
+    'https://facebook.com/adamjamestulsa',
+    'https://instagram.com/adamjamestulsa'
+  ],
+  serviceArea: {
+    '@type': 'AdministrativeArea' as const,
+    name: 'Downtown Tulsa'
   }
 }
 
 export default function DowntownTulsaPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      {/* SEO Schema Markup */}
+      <LocalBusinessSchema business={downtownTulsaBusinessData} />
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Downtown Tulsa Entrepreneur <br />
-              <span className="text-yellow-400">Adam James</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Downtown Tulsa Entrepreneur
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Transforming Downtown Tulsa Through Innovative Business Leadership
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Adam James serves the heart of Tulsa's business community with corporate housing, 
+              mental health services, and strategic business consulting
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Connect with Adam James
-              </a>
-              <a href="#services" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Explore Services
-              </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Serving Downtown Tulsa's Business Community
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Downtown Tulsa represents the heart of our city's business community, and I'm proud 
+                to serve this vibrant area through my businesses and community involvement. From the 
+                Tulsa Arts District to the bustling business district, Downtown Tulsa is where innovation 
+                meets tradition, and where businesses come to grow and thrive.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                As a Downtown Tulsa entrepreneur, I understand the unique needs of businesses and 
+                professionals in this dynamic area. Whether you need corporate housing for visiting 
+                executives, mental health support for your team, or strategic business consulting 
+                to accelerate growth, I'm here to help you succeed.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                  Tulsa Arts District
+                </span>
+                <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+                  Business District
+                </span>
+                <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">
+                  Corporate Center
+                </span>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl">
+              <div className="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
+                <span className="text-gray-400 text-lg">Downtown Tulsa Map</span>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Service Area</h3>
+                <p className="text-gray-600">Downtown Tulsa & Surrounding Areas</p>
+                <p className="text-gray-600">Within 5 miles of city center</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        {/* Introduction */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Adam James: Downtown Tulsa's Premier Business Leader</h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="text-xl mb-6">
-              In the heart of Oklahoma's energy capital, <strong>Adam James Tulsa</strong> stands as downtown Tulsa's most influential entrepreneur and business innovator. With a proven track record of building successful enterprises that transform communities, Adam James has become synonymous with downtown Tulsa's remarkable economic renaissance and continued growth trajectory.
-            </p>
-
-            <p className="mb-6">
-              Downtown Tulsa represents more than just Oklahoma's business district—it's the epicenter of innovation, culture, and economic opportunity that Adam James has helped shape through his visionary leadership and strategic business development. From the bustling Arts District to the thriving Brady District, Adam James's influence extends throughout downtown Tulsa's most dynamic neighborhoods, creating opportunities for businesses, residents, and visitors alike.
-            </p>
-
-            <p className="mb-6">
-              As a <strong>downtown Tulsa entrepreneur</strong>, Adam James understands the unique challenges and incredible opportunities that exist within Oklahoma's premier urban center. His comprehensive approach to business development combines deep local knowledge with innovative strategies that have helped countless entrepreneurs and established businesses achieve unprecedented success in the competitive downtown Tulsa marketplace.
-            </p>
-
-            <p className="mb-6">
-              The downtown Tulsa business ecosystem has been significantly enhanced through Adam James's leadership in multiple industries. Through Integrity Corporate Housing, he has addressed the growing demand for premium temporary accommodations for business travelers and relocating professionals. Safe Harbor Mental Health has brought crucial pediatric therapy services to downtown families, while GrowthGenix AI represents the cutting-edge technology solutions that are positioning downtown Tulsa as a regional innovation hub.
-            </p>
-          </div>
-        </section>
-
-        {/* Downtown Impact */}
-        <section id="impact" className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Transforming Downtown Tulsa's Business Landscape</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4">Economic Development Impact</h3>
-              <p className="text-gray-700">
-                Adam James has contributed over $2.3 million in direct economic impact to downtown Tulsa through his business ventures, creating more than 47 full-time positions and supporting dozens of contractors and service providers throughout the downtown district.
+      {/* Downtown Tulsa Business Climate */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+              Downtown Tulsa Business Climate
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Downtown Tulsa is experiencing unprecedented growth and development. The Tulsa Arts 
+                District has become a cultural hub, attracting creative professionals and innovative 
+                businesses. Meanwhile, the traditional business district continues to evolve with 
+                new corporate headquarters, technology companies, and professional services.
               </p>
-            </div>
-            <div className="bg-green-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-green-900 mb-4">Community Investment</h3>
-              <p className="text-gray-700">
-                Through strategic partnerships and community initiatives, Adam James has invested in downtown Tulsa's infrastructure, supporting local nonprofits, community events, and economic development programs that strengthen the urban core.
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                The area's economic development initiatives, combined with its central location and 
+                excellent transportation access, make Downtown Tulsa an ideal place for businesses 
+                to establish roots and grow. From startups to Fortune 500 companies, Downtown Tulsa 
+                offers the infrastructure, talent, and community support that businesses need to succeed.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Future development plans include additional mixed-use projects, enhanced public 
+                transportation, and continued investment in arts and culture. These initiatives 
+                ensure that Downtown Tulsa will remain a premier business destination for years to come.
               </p>
             </div>
           </div>
-
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-6">
-              The <strong>Adam James downtown Tulsa</strong> business philosophy centers on sustainable growth that benefits both individual enterprises and the broader downtown community. This approach has resulted in measurable improvements to downtown Tulsa's business climate, including increased property values, enhanced commercial occupancy rates, and improved quality of life for downtown residents and workers.
-            </p>
-
-            <p className="mb-6">
-              Downtown Tulsa's transformation from a traditional business district to a vibrant, mixed-use urban center has been accelerated by entrepreneurial leaders like Adam James who understand the importance of creating synergies between different business sectors. His work has helped establish downtown Tulsa as a destination for innovative companies, creative professionals, and forward-thinking entrepreneurs from across Oklahoma and beyond.
-            </p>
-
-            <p className="mb-6">
-              The strategic location of Adam James's businesses throughout downtown Tulsa reflects his commitment to the district's continued growth and development. By maintaining a strong presence in key downtown neighborhoods, he has helped create the critical mass of activity and investment that attracts additional businesses and supports the overall vitality of downtown Tulsa's economy.
-            </p>
           </div>
         </section>
 
-        {/* Services for Downtown */}
-        <section id="services" className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Comprehensive Business Services for Downtown Tulsa</h2>
+      {/* Services in Downtown Tulsa */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Adam James Services in Downtown Tulsa
+          </h2>
           
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4">Corporate Housing Solutions</h3>
-              <p className="text-gray-700 mb-4">
-                Premium temporary housing for downtown Tulsa business travelers, executives, and relocating professionals through Integrity Corporate Housing.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Corporate Housing */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-12 h-12 bg-amber-100 rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-2xl">🏠</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Corporate Housing</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Premium corporate housing solutions for Downtown Tulsa businesses. Located within 
+                walking distance of major corporate offices and business centers.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Fully furnished downtown apartments</li>
-                <li>• Executive suites near business district</li>
-                <li>• Short and long-term accommodations</li>
-                <li>• Concierge services for downtown amenities</li>
+              <ul className="text-sm text-gray-500 space-y-2">
+                <li>• Fully furnished apartments</li>
+                <li>• High-speed internet & utilities</li>
+                <li>• Flexible lease terms</li>
+                <li>• 24/7 support</li>
               </ul>
             </div>
             
-            <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-green-900 mb-4">Mental Health Services</h3>
-              <p className="text-gray-700 mb-4">
-                Innovative pediatric therapy and mental health support for downtown Tulsa families through Safe Harbor Mental Health.
+            {/* Mental Health Services */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-2xl">💚</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mental Health Services</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Comprehensive mental health support for Downtown Tulsa professionals and families. 
+                Convenient location with flexible scheduling options.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Pediatric therapy services</li>
-                <li>• Family counseling programs</li>
-                <li>• Mental health advocacy</li>
-                <li>• Community wellness initiatives</li>
+              <ul className="text-sm text-gray-500 space-y-2">
+                <li>• Individual & family therapy</li>
+                <li>• Workplace mental health programs</li>
+                <li>• Stress management counseling</li>
+                <li>• Insurance accepted</li>
               </ul>
             </div>
             
-            <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4">Technology Innovation</h3>
-              <p className="text-gray-700 mb-4">
-                Cutting-edge AI and technology solutions for downtown Tulsa businesses through GrowthGenix AI.
+            {/* Business Consulting */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-12 h-12 bg-green-100 rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-2xl">🚀</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Business Consulting</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Strategic business development and growth consulting for Downtown Tulsa companies. 
+                From startups to established businesses.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• AI implementation consulting</li>
-                <li>• Digital transformation services</li>
-                <li>• Technology strategy development</li>
-                <li>• Innovation workshops and training</li>
+              <ul className="text-sm text-gray-500 space-y-2">
+                <li>• Growth strategy development</li>
+                <li>• Operations optimization</li>
+                <li>• Team building & leadership</li>
+                <li>• Financial planning</li>
               </ul>
             </div>
           </div>
-
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-6">
-              <strong>Adam James Tulsa downtown business</strong> services are specifically designed to address the unique needs and opportunities present in Oklahoma's premier urban business environment. Understanding that downtown Tulsa operates at a different pace and scale than suburban business districts, Adam James has developed service offerings that capitalize on the density, connectivity, and energy that define downtown business operations.
-            </p>
-
-            <p className="mb-6">
-              For businesses considering downtown Tulsa as their next location, Adam James provides comprehensive consulting services that cover everything from site selection and lease negotiation to marketing strategy and community integration. His deep knowledge of downtown Tulsa's business ecosystem, including relationships with key property owners, city officials, and business leaders, provides clients with invaluable insights and connections.
-            </p>
           </div>
         </section>
 
-        {/* Downtown Districts */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Serving All Downtown Tulsa Districts</h2>
+      {/* Community Involvement */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+              Downtown Tulsa Community Involvement
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                I'm actively involved in Downtown Tulsa's business community and cultural scene. 
+                From participating in Tulsa Arts District events to supporting local business 
+                initiatives, I believe in giving back to the community that has given me so much.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                I regularly attend Downtown Tulsa business networking events, support local arts 
+                organizations, and participate in community development projects. My goal is to 
+                help make Downtown Tulsa an even better place to live, work, and do business.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Through partnerships with local businesses, participation in Downtown Tulsa 
+                development initiatives, and support for community events, I'm committed to 
+                contributing to the continued growth and success of our downtown area.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demographics & Market */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Downtown Tulsa Demographics & Market
+          </h2>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">Arts District</h3>
-              <p className="text-gray-700 mb-4">
-                Adam James supports the vibrant Arts District through business consulting for creative enterprises, real estate development projects, and community partnerships that strengthen downtown Tulsa's cultural identity.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Creative business consulting</li>
-                <li>• Arts-focused real estate development</li>
-                <li>• Cultural event sponsorship</li>
-                <li>• Artist community support programs</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-semibold text-green-900 mb-4">Brady District</h3>
-              <p className="text-gray-700 mb-4">
-                In the historic Brady District, Adam James provides specialized services for entertainment venues, hospitality businesses, and retail establishments that contribute to downtown Tulsa's nightlife and tourism economy.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Hospitality business development</li>
-                <li>• Entertainment venue consulting</li>
-                <li>• Tourism industry support</li>
-                <li>• Historic district preservation projects</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-semibold text-purple-900 mb-4">Central Business District</h3>
-              <p className="text-gray-700 mb-4">
-                The heart of downtown Tulsa's financial and professional services sector benefits from Adam James's expertise in corporate development, professional services enhancement, and executive-level business solutions.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Corporate development consulting</li>
-                <li>• Professional services optimization</li>
-                <li>• Executive coaching and development</li>
-                <li>• Financial district networking</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-semibold text-red-900 mb-4">Greenwood District</h3>
-              <p className="text-gray-700 mb-4">
-                Adam James is committed to supporting the revitalization of the historic Greenwood District through community-focused business development, cultural preservation, and economic empowerment initiatives.
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1 mb-4">
-                <li>• Community business development</li>
-                <li>• Cultural preservation support</li>
-                <li>• Economic empowerment programs</li>
-                <li>• Historical district revitalization</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Success Stories */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Downtown Tulsa Success Stories</h2>
-          
-          <div className="bg-gray-50 p-8 rounded-lg mb-8">
-            <h3 className="text-2xl font-semibold text-blue-900 mb-4">Technology Startup Transformation</h3>
-            <p className="text-gray-700 mb-4">
-              A downtown Tulsa technology startup approached Adam James with ambitious growth plans but limited understanding of the local business ecosystem. Through GrowthGenix AI's comprehensive consulting services, the company implemented cutting-edge automation solutions that increased operational efficiency by 340% within eight months.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Adam James's guidance helped the startup navigate downtown Tulsa's unique regulatory environment, connect with key investors, and establish strategic partnerships with other downtown businesses. The company has since expanded from 3 employees to 23 employees, all based in downtown Tulsa, contributing significantly to the district's growing reputation as a technology hub.
-            </p>
-            <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600">
-              "Adam James didn't just provide consulting services—he became our strategic partner in understanding and succeeding within downtown Tulsa's business environment. His insights into the local market and connections throughout the downtown community were invaluable to our growth."
-            </blockquote>
-          </div>
-
-          <div className="bg-gray-50 p-8 rounded-lg mb-8">
-            <h3 className="text-2xl font-semibold text-green-900 mb-4">Healthcare Practice Expansion</h3>
-            <p className="text-gray-700 mb-4">
-              A pediatric healthcare practice seeking to establish a downtown Tulsa location partnered with Adam James through Safe Harbor Mental Health's collaborative network. The practice needed guidance on downtown regulations, patient accessibility, and integration with existing healthcare services.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Adam James facilitated connections with downtown property owners, helped navigate city planning requirements, and provided insights into serving downtown Tulsa's diverse family population. The practice successfully opened in the Arts District and now serves over 400 families throughout downtown and greater Tulsa.
-            </p>
-            <blockquote className="border-l-4 border-green-500 pl-4 italic text-gray-600">
-              "Working with Adam James made our downtown Tulsa expansion seamless. His understanding of the community's needs and his network of professional relationships were instrumental in our successful launch."
-            </blockquote>
-          </div>
-        </section>
-
-        {/* Economic Opportunities */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Economic Opportunities in Downtown Tulsa</h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-6">
-              Downtown Tulsa presents unprecedented economic opportunities for entrepreneurs, investors, and established businesses seeking growth in Oklahoma's most dynamic business environment. <strong>Adam James Tulsa</strong> has identified and capitalized on numerous trends that position downtown as a premier destination for business development and investment.
-            </p>
-
-            <p className="mb-6">
-              The convergence of several factors has created a perfect storm of opportunity in downtown Tulsa. Major infrastructure investments, including the $465 million A Gathering Place park and continued development of the Arkansas River corridor, have enhanced downtown's appeal for both businesses and residents. The district's proximity to the University of Tulsa and other educational institutions provides access to emerging talent and research partnerships.
-            </p>
-
-            <p className="mb-6">
-              <strong>Downtown Tulsa entrepreneur Adam James</strong> has observed significant opportunities in technology integration, healthcare innovation, creative industries, and sustainable business practices. The district's compact geography and walkable infrastructure make it ideal for businesses that value collaboration, networking, and operational efficiency.
-            </p>
-
-            <div className="bg-blue-50 p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4">Key Growth Sectors</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-blue-800 mb-2">Technology & Innovation</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>• Artificial intelligence and automation</li>
-                    <li>• Financial technology (FinTech)</li>
-                    <li>• Healthcare technology solutions</li>
-                    <li>• Smart city infrastructure</li>
-                  </ul>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Population & Demographics</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Total Population</span>
+                  <span className="text-xl font-bold text-blue-600">15,000+</span>
                 </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Median Age</span>
+                  <span className="text-xl font-bold text-blue-600">34 years</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">College Educated</span>
+                  <span className="text-xl font-bold text-blue-600">68%</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Median Income</span>
+                  <span className="text-xl font-bold text-blue-600">$75,000</span>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Business Environment</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Major Employers</span>
+                  <span className="text-xl font-bold text-blue-600">50+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Office Buildings</span>
+                  <span className="text-xl font-bold text-blue-600">25+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Restaurants & Retail</span>
+                  <span className="text-xl font-bold text-blue-600">200+</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                  <span className="text-gray-700">Annual Events</span>
+                  <span className="text-xl font-bold text-blue-600">100+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            Downtown Tulsa Client Success Stories
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-gray-600">5.0/5</span>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "Adam's corporate housing service has been a game-changer for our Downtown Tulsa 
+                operations. The quality and convenience are unmatched."
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
                 <div>
-                  <h4 className="font-semibold text-blue-800 mb-2">Healthcare & Wellness</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>• Specialized medical practices</li>
-                    <li>• Mental health and therapy services</li>
-                    <li>• Wellness and fitness centers</li>
-                    <li>• Telehealth and remote care</li>
-                  </ul>
+                  <p className="font-semibold text-gray-900">Sarah Johnson</p>
+                  <p className="text-sm text-gray-600">HR Director, Tech Startup</p>
                 </div>
               </div>
             </div>
 
-            <p className="mb-6">
-              Real estate development represents another significant opportunity in downtown Tulsa, with Adam James providing expertise in both commercial and residential projects. The district's ongoing transformation has created demand for mixed-use developments, adaptive reuse projects, and innovative housing solutions that serve the growing downtown workforce.
-            </p>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
           </div>
-        </section>
-
-        {/* Contact and Call to Action */}
-        <section id="contact" className="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-8 rounded-lg">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Partner with Downtown Tulsa's Premier Entrepreneur</h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Join Adam James in transforming downtown Tulsa's business landscape through innovative collaboration and strategic partnerships.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Business Consulting</h3>
-                <p className="text-sm text-blue-100">Strategic guidance for downtown Tulsa success</p>
+                <span className="ml-2 text-gray-600">5.0/5</span>
               </div>
+              <p className="text-gray-700 mb-4 italic">
+                "The mental health services Adam provides have helped our team manage workplace 
+                stress and maintain work-life balance in Downtown Tulsa."
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-gray-300 rounded-full mr-3"></div>
               <div>
-                <h3 className="text-lg font-semibold mb-2">Investment Opportunities</h3>
-                <p className="text-sm text-blue-100">Explore downtown real estate and business ventures</p>
+                  <p className="font-semibold text-gray-900">Michael Chen</p>
+                  <p className="text-sm text-gray-600">Operations Manager</p>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Community Partnerships</h3>
-                <p className="text-sm text-blue-100">Collaborate on downtown development initiatives</p>
               </div>
             </div>
-            
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-20 bg-blue-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Ready to Work Together in Downtown Tulsa?
+            </h2>
+            <p className="text-xl mb-8 leading-relaxed">
+              Whether you need corporate housing, mental health services, or business consulting 
+              in Downtown Tulsa, I'm here to help you succeed. Let's discuss how we can work 
+              together to achieve your goals.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:contact@adamjamestulsa.com" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Schedule Consultation
+              <a 
+                href="/contact" 
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Get In Touch
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
-                Call Adam James
+              <a 
+                href="/businesses" 
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              >
+                Explore Services
               </a>
             </div>
+            
+            <div className="mt-12 pt-8 border-t border-blue-500/30">
+              <p className="text-blue-200 mb-4">Service Areas in Downtown Tulsa</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <span className="bg-blue-500/20 text-blue-100 px-4 py-2 rounded-full text-sm">
+                  Tulsa Arts District
+                </span>
+                <span className="bg-blue-500/20 text-blue-100 px-4 py-2 rounded-full text-sm">
+                  Business District
+                </span>
+                <span className="bg-blue-500/20 text-blue-100 px-4 py-2 rounded-full text-sm">
+                  Blue Dome District
+                </span>
+                <span className="bg-blue-500/20 text-blue-100 px-4 py-2 rounded-full text-sm">
+                  Brady District
+                </span>
+              </div>
+            </div>
+          </div>
           </div>
         </section>
-
-        {/* Related Locations */}
-        <section className="mt-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Explore Adam James's Impact Across Tulsa</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="/locations/midtown-tulsa" className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">Midtown Tulsa</h3>
-              <p className="text-gray-600">Discover Adam James's business services in Tulsa's vibrant midtown district</p>
-            </a>
-            <a href="/locations/south-tulsa" className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-green-900 mb-2">South Tulsa</h3>
-              <p className="text-gray-600">Explore entrepreneurial opportunities in South Tulsa's growing business corridor</p>
-            </a>
-            <a href="/locations/broken-arrow" className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-purple-900 mb-2">Broken Arrow</h3>
-              <p className="text-gray-600">Learn about Adam James's impact in Broken Arrow's thriving business community</p>
-            </a>
-          </div>
-        </section>
-      </main>
-    </div>
+    </>
   )
 }
