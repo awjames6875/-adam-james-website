@@ -23,6 +23,26 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="relative w-full h-full"
           >
+            {/*
+              ⚠️ CRITICAL: Hero Video Background Implementation
+
+              DO NOT MODIFY THESE ATTRIBUTES - All 4 are REQUIRED for proper functionality:
+              • autoPlay: Starts video automatically on page load
+              • muted: REQUIRED for autoPlay to work in modern browsers (Chrome, Safari, Firefox)
+              • loop: Restarts video automatically when it ends (creates seamless looping)
+              • playsInline: Prevents fullscreen on iOS devices (essential for mobile)
+
+              ⚠️ Removing ANY of these attributes WILL BREAK the video background functionality.
+
+              File Locations (DO NOT MOVE):
+              • Video: /public/images/adamspeakingengagement.mp4 (12.65 MB)
+              • Poster: /public/images/adam-speaking-hero.jpg (875 KB)
+
+              For troubleshooting & documentation, see: docs/VIDEO-IMPLEMENTATION.md
+
+              Issue History: Videos were moved to subdirectory and broke functionality.
+              Resolution: Files must remain in /public/images/ root directory.
+            */}
             <video
               autoPlay
               muted
@@ -185,10 +205,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              From Federal Prison to Found Purpose
+              Building Businesses That Transform Lives
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
-              I lost everything. My reputation, my freedom, and my identity. But in the silence of a prison cell, I found the one thing I couldn't lose: myself. This is the story of how I rebuilt my life and why I founded Safe Harbor to help others do the same.
+              I believe everyone deserves a second chance—including myself. From starting over with nothing to building three thriving companies in Tulsa, my journey proves that your past doesn&apos;t define your future. Today, I&apos;m committed to creating opportunities and serving our community.
             </p>
           </motion.div>
 
@@ -199,16 +219,16 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-3xl font-bold mb-6 text-gray-900">The Journey</h3>
+              <h3 className="text-3xl font-bold mb-6 text-gray-900">The Entrepreneur&apos;s Path</h3>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Growing up in Toledo, Ohio, I&apos;ve always believed in the power of second chances.
-                When life presented challenges, I made a decision to turn those experiences
-                into opportunities to help others.
+                From Toledo, Ohio to Tulsa, Oklahoma—I&apos;ve dedicated my career to building businesses
+                that make a real difference. Every company I&apos;ve founded addresses a genuine need
+                in our community, from housing to mental health to business growth.
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Today, through Integrity Corporate Housing, Safe Harbor Mental Health, and
-                GrowthGenix.ai, I&apos;m proud to serve our Tulsa community with the same
-                compassion and support that helped me rebuild my own life.
+                Through Integrity Corporate Housing, Safe Harbor Behavioral Health, and
+                GrowthGenix.ai, I&apos;m committed to creating jobs, serving families, and
+                helping Tulsa thrive. This is my home, and I&apos;m here to build something lasting.
               </p>
               <Link href="/about">
                 <motion.div
@@ -264,7 +284,7 @@ export default function Home() {
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-2xl"
-                src="https://www.youtube.com/embed/SuXFK-EXjTk"
+                src="https://www.youtube.com/embed/-ZloJY6hLyM"
                 title="Adam James Transformation Story"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

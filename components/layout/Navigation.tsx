@@ -55,7 +55,6 @@ const Navigation = () => {
   const navLinks: NavLink[] = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/my-story', label: 'My Story' },
     { label: 'Businesses', dropdown: businessLinks },
     { label: 'Locations', dropdown: locationLinks },
     { href: '/services', label: 'Services' },

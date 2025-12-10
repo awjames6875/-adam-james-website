@@ -1,0 +1,6 @@
+node_modules
+.next/cache
+.git
+*.log
+.env*.local
+public/images/originals

@@ -26,7 +26,8 @@
       "Bash(npx lighthouse:*)",
       "mcp__playwright__browser_press_key",
       "Bash(touch:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npm run lint:*)"
     ],
     "deny": [],
     "ask": [],

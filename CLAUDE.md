@@ -192,6 +192,38 @@ vercel --prod       # Deploy to production
 - **Local Focus**: Emphasize Tulsa and Oklahoma connections
 - **Testing**: Test on real devices, not just browser DevTools
 
+## Critical Implementation Rules
+
+### Video Background Implementation ⚠️
+**Homepage hero section has a critical looping video background - DO NOT MODIFY WITHOUT REVIEW**
+
+**File Locations** (DO NOT MOVE):
+- **Video**: `/public/images/adamspeakingengagement.mp4` - DO NOT MOVE
+- **Poster Image**: `/public/images/adam-speaking-hero.jpg` - DO NOT MOVE
+
+**Required Code Attributes** (ALL 4 MUST BE PRESENT):
+```tsx
+<video autoPlay muted loop playsInline ... >
+```
+- `autoPlay` - Starts video automatically on page load
+- `muted` - REQUIRED for autoPlay to work in modern browsers
+- `loop` - Creates seamless looping without gaps
+- `playsInline` - Essential for iOS background video behavior
+
+**⚠️ Removing ANY of these attributes WILL BREAK the video functionality**
+
+**Homepage Modification Checklist**:
+- [ ] Before editing `app/page.tsx` hero section, read inline comments (lines 26-45)
+- [ ] Never delete or modify the 4 required video attributes
+- [ ] Never move video files to subdirectories
+- [ ] After changes, test on mobile (especially iOS)
+- [ ] If video breaks, see: `docs/VIDEO-IMPLEMENTATION.md`
+
+**Related Documentation**:
+- Code comments: `app/page.tsx` (lines 26-45)
+- Comprehensive guide: `docs/VIDEO-IMPLEMENTATION.md`
+- Historical issue: See `docs/memory-bank.md` - Critical Implementation Details
+
 ## Quick Reference
 
 ### Current Project Status

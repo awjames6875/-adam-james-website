@@ -298,6 +298,112 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Beyond Business - Living Life Fully */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+              Beyond Business - Living Life Fully
+            </h2>
+
+            <div className="prose prose-lg max-w-none mb-12 text-center">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Success isn&apos;t just about business—it&apos;s about living a full, balanced life.
+                When I&apos;m not building businesses or serving our community, you&apos;ll find me
+                pursuing my passions around the world.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+              {/* Salsa Dancing */}
+              <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/hobbies/salsa-dancing.png"
+                    alt="Adam James Salsa Dancing"
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">💃 Salsa Dancing</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    The rhythm, the passion, the connection—salsa dancing is my way of
+                    staying energized and connected to different cultures.
+                  </p>
+                </div>
+              </div>
+
+              {/* Skiing */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/hobbies/ski.png"
+                    alt="Adam James Skiing"
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">⛷️ Skiing</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    There&apos;s nothing like the rush of carving down a mountain. Skiing teaches
+                    me to embrace challenges and enjoy the journey.
+                  </p>
+                </div>
+              </div>
+
+              {/* Brazilian Jiu-Jitsu */}
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/hobbies/bjj.png"
+                    alt="Adam James Brazilian Jiu-Jitsu"
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">🥋 Brazilian Jiu-Jitsu</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    BJJ is more than a martial art—it&apos;s a philosophy of continuous improvement,
+                    resilience, and respect that applies to every area of life.
+                  </p>
+                </div>
+              </div>
+
+              {/* Travel */}
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src="/images/hobbies/paris-photo.jpg"
+                    alt="Adam James in Paris - I miss my second home"
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                    <p className="text-white text-sm font-medium">I miss my second home</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">✈️ World Travel</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Exploring new cultures and perspectives around the world enriches my
+                    understanding and brings fresh ideas to my businesses.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Book */}
       <section className="py-20 bg-gradient-to-br from-indigo-100 to-purple-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

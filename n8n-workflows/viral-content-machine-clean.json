@@ -1,0 +1,237 @@
+{
+  "name": "Viral Content Machine - Phase 1",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "name": "Daily Trigger - 8 AM CST",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://www.reddit.com/r/entrepreneur/hot/.rss",
+        "options": {
+          "limit": 10
+        }
+      },
+      "name": "Reddit Entrepreneur Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 200]
+    },
+    {
+      "parameters": {
+        "url": "https://www.reddit.com/r/smallbusiness/hot/.rss",
+        "options": {
+          "limit": 5
+        }
+      },
+      "name": "Reddit Small Business Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://www.entrepreneur.com/latest.rss",
+        "options": {
+          "limit": 5
+        }
+      },
+      "name": "Entrepreneur Magazine Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 400]
+    },
+    {
+      "parameters": {
+        "url": "https://tulsaworld.com/business/rss.xml",
+        "options": {
+          "limit": 5
+        }
+      },
+      "name": "Tulsa Business News Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [450, 500]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll"
+      },
+      "name": "Merge All Feeds",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [650, 350]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst scoredItems = [];\n\nconst nicheKeywords = {\n  entrepreneurship: ['entrepreneur', 'startup', 'business', 'founder', 'small business', 'growth'],\n  mentalHealth: ['mental health', 'therapy', 'wellness', 'support', 'counseling'],\n  corporateHousing: ['remote work', 'housing', 'corporate housing', 'relocation', 'work from home'],\n  tulsa: ['tulsa', 'oklahoma', 'small city', 'midwest'],\n  ai: ['ai', 'artificial intelligence', 'automation', 'technology']\n};\n\nfor (const item of items) {\n  const title = (item.json.title || '').toLowerCase();\n  const description = (item.json.description || '').toLowerCase();\n  const content = title + ' ' + description;\n  \n  let score = 0;\n  let matchedNiches = [];\n  \n  for (const [niche, keywords] of Object.entries(nicheKeywords)) {\n    for (const keyword of keywords) {\n      if (content.includes(keyword)) {\n        score += 10;\n        if (!matchedNiches.includes(niche)) {\n          matchedNiches.push(niche);\n        }\n      }\n    }\n  }\n  \n  if (matchedNiches.length > 1) {\n    score += 20;\n  }\n  \n  if (content.includes('tulsa') || content.includes('oklahoma')) {\n    score += 30;\n  }\n  \n  if (content.includes('how to') || content.includes('tips') || content.includes('guide')) {\n    score += 15;\n  }\n  \n  if (score > 20) {\n    scoredItems.push({\n      json: {\n        ...item.json,\n        viralityScore: score,\n        matchedNiches: matchedNiches,\n        relevanceReason: `Matches niches: ${matchedNiches.join(', ')}`\n      }\n    });\n  }\n}\n\nconst topItems = scoredItems\n  .sort((a, b) => b.json.viralityScore - a.json.viralityScore)\n  .slice(0, 3);\n\nreturn topItems;"
+      },
+      "name": "AI Content Analyzer",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 350]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst scripts = [];\n\nfor (const item of items) {\n  const title = item.json.title;\n  const niches = item.json.matchedNiches || [];\n  const score = item.json.viralityScore;\n  \n  let hook = \"Everyone told me I was crazy for \";\n  if (niches.includes('mentalHealth')) {\n    hook = \"Here's the truth about mental health that nobody talks about \";\n  } else if (niches.includes('corporateHousing')) {\n    hook = \"The future of work just changed everything \";\n  }\n  \n  const script = {\n    json: {\n      originalTopic: title,\n      viralityScore: score,\n      adamJamesAngle: `As a Tulsa entrepreneur running 3 businesses, here's my take on ${title}`,\n      reelScript: {\n        hook: `${hook}[relate to ${title}]... (0-3 seconds)`,\n        problem: `Most people think [common belief]. But here's what they're missing... (4-10 seconds)`,\n        solution: `In Tulsa, I learned 3 things running my businesses:\\n1. [Insight related to ${niches[0] || 'business'}]\\n2. [Insight related to community]\\n3. [Insight related to growth] (11-20 seconds)`,\n        proof: `Today, through Integrity Corporate Housing, Safe Harbor Mental Health, and GrowthGenix.ai, we've served 1,500+ families. All from Tulsa, Oklahoma. (21-27 seconds)`,\n        cta: `What's your experience with this? Drop a comment below 👇 (28-30 seconds)`\n      },\n      filming: {\n        location: \"Your office with professional background\",\n        outfit: \"Business casual - button-down shirt, no tie\",\n        camera: \"Phone on tripod at eye level, vertical (9:16)\",\n        lighting: \"Natural window light from side OR ring light\",\n        estimatedTime: \"10-15 minutes total\"\n      },\n      captions: {\n        facebook: `${title} - A Tulsa Perspective \\n\\nAs an entrepreneur running 3 businesses in Tulsa, I've learned that [key insight].\\n\\n✅ [Point 1]\\n✅ [Point 2]\\n✅ [Point 3]\\n\\nToday: Integrity Corporate Housing, Safe Harbor Mental Health, and GrowthGenix.ai serve 1,500+ families across Tulsa.\\n\\n#AdamJamesTulsa #TulsaEntrepreneur`,\n        instagram: `Same + #TulsaOK #Entrepreneurship #SmallBusiness #StartupLife #BusinessOwner #TulsaBusiness`,\n        tiktok: `${title.substring(0, 100)} Building from Tulsa, OK! #TulsaEntrepreneur #SmallCityBigDreams`,\n        linkedin: `${title}\\n\\nAs a Tulsa entrepreneur running Integrity Corporate Housing, Safe Harbor Mental Health, and GrowthGenix.ai, here's what I've learned...`\n      }\n    }\n  };\n  \n  scripts.push(script);\n}\n\nreturn scripts;"
+      },
+      "name": "Reel Script Generator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 350]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });\n\nlet emailHTML = `<html><body><h1>🎯 YOUR VIRAL CONTENT FOR TODAY</h1><p>${today}</p>`;\n\nitems.forEach((item, index) => {\n  const data = item.json;\n  emailHTML += `<h2>🔥 TOPIC #${index + 1}: ${data.originalTopic}</h2>`;\n  emailHTML += `<p>Virality Score: ${data.viralityScore}/100</p>`;\n  emailHTML += `<h3>📱 REEL SCRIPT</h3>`;\n  emailHTML += `<p>HOOK: ${data.reelScript.hook}</p>`;\n  emailHTML += `<p>PROBLEM: ${data.reelScript.problem}</p>`;\n  emailHTML += `<p>SOLUTION: ${data.reelScript.solution}</p>`;\n  emailHTML += `<p>PROOF: ${data.reelScript.proof}</p>`;\n  emailHTML += `<p>CTA: ${data.reelScript.cta}</p>`;\n  emailHTML += `<h3>📸 FILMING</h3>`;\n  emailHTML += `<p>Location: ${data.filming.location}</p>`;\n  emailHTML += `<p>Outfit: ${data.filming.outfit}</p>`;\n  emailHTML += `<p>Time: ${data.filming.estimatedTime}</p>`;\n  emailHTML += `<h3>📝 CAPTIONS</h3>`;\n  emailHTML += `<p><strong>Facebook:</strong> ${data.captions.facebook}</p>`;\n  emailHTML += `<p><strong>TikTok:</strong> ${data.captions.tiktok}</p>`;\n  emailHTML += `<hr>`;\n});\n\nemailHTML += `<p>Let's crush it today! 💪</p></body></html>`;\n\nreturn [{\n  json: {\n    subject: `🎯 YOUR VIRAL CONTENT FOR TODAY - ${items[0].json.originalTopic}`,\n    html: emailHTML,\n    topicsCount: items.length\n  }\n}];"
+      },
+      "name": "Email Formatter",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 350]
+    },
+    {
+      "parameters": {
+        "sendTo": "your-email@gmail.com",
+        "subject": "={{ $json.subject }}",
+        "emailType": "html",
+        "message": "={{ $json.html }}"
+      },
+      "name": "Send Email via Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [1450, 350]
+    }
+  ],
+  "connections": {
+    "Daily Trigger - 8 AM CST": {
+      "main": [
+        [
+          {
+            "node": "Reddit Entrepreneur Feed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reddit Small Business Feed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Entrepreneur Magazine Feed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tulsa Business News Feed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reddit Entrepreneur Feed": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reddit Small Business Feed": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Entrepreneur Magazine Feed": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Tulsa Business News Feed": {
+      "main": [
+        [
+          {
+            "node": "Merge All Feeds",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge All Feeds": {
+      "main": [
+        [
+          {
+            "node": "AI Content Analyzer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Content Analyzer": {
+      "main": [
+        [
+          {
+            "node": "Reel Script Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reel Script Generator": {
+      "main": [
+        [
+          {
+            "node": "Email Formatter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Formatter": {
+      "main": [
+        [
+          {
+            "node": "Send Email via Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
