@@ -3,10 +3,19 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import { PersonSchema, adamJamesData } from '@/components/seo/PersonSchema';
 import { LocalBusinessSchema, adamJamesBusinessData } from '@/components/seo/LocalBusinessSchema';
+import ParticleTextEffect from '@/components/ui/ParticleTextEffect';
 
 export default function Home() {
+  const [showParticleEffect, setShowParticleEffect] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const hasViewed = sessionStorage.getItem('particle-text-animation-shown');
+    const isMobile = window.innerWidth < 768;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return !hasViewed && !isMobile && !prefersReduced;
+  });
   return (
     <>
       {/* SEO Schema Markup */}
@@ -74,23 +83,49 @@ export default function Home() {
               <span className="text-sm font-medium text-blue-200 tracking-wide uppercase">Tulsa&apos;s Premier Entrepreneur</span>
             </motion.div>
 
-            {/* Main Headline - Modern & Impactful */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
-            >
-              Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Legacy</span>.
-              <br />
-              Empowering <span className="italic font-serif font-light text-white/90">Community</span>.
-            </motion.h1>
+            {/* Main Headline - With Particle Effect or Normal Text */}
+            {!showParticleEffect ? (
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
+              >
+                Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Legacy</span>.
+                <br />
+                Empowering <span className="italic font-serif font-light text-white/90">Community</span>.
+              </motion.h1>
+            ) : (
+              <div className="relative w-full h-[200px] md:h-[280px] lg:h-[360px] mb-8">
+                <ParticleTextEffect
+                  lines={[
+                    {
+                      text: "Building Legacy.",
+                      gradient: { from: "#60a5fa", to: "#818cf8" },
+                      fontSize: 96,
+                      fontWeight: "bold"
+                    },
+                    {
+                      text: "Empowering Community.",
+                      gradient: { from: "#ffffff", to: "#e0e7ff" },
+                      fontSize: 96,
+                      fontWeight: "300",
+                      fontFamily: "Georgia, serif"
+                    }
+                  ]}
+                  onComplete={() => {
+                    setShowParticleEffect(false);
+                    sessionStorage.setItem('particle-text-animation-shown', 'true');
+                  }}
+                />
+              </div>
+            )}
 
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: showParticleEffect ? 5.0 : 0.5 }}
               className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed font-light"
             >
               From corporate housing to mental health advocacy, I build businesses that solve real problems and create second chances for families in Tulsa.
@@ -100,7 +135,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.8, delay: showParticleEffect ? 5.5 : 0.7 }}
               className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
             >
               <Link href="/about" className="group">
@@ -120,7 +155,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.8, delay: showParticleEffect ? 6.0 : 0.9 }}
               className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-4xl"
             >
               {[
@@ -141,7 +176,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: showParticleEffect ? 6.5 : 1.5 }}
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
           <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
