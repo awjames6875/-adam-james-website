@@ -24,6 +24,55 @@ vercel              # Deploy to Vercel (requires CLI setup)
 vercel --prod       # Deploy to production
 ```
 
+## Memory Bank Protocol ⭐
+
+**This is the foundation of cross-IDE consistency. Always follow this protocol.**
+
+### At Session Start (CRITICAL)
+Read ALL 4 memory bank files in this order:
+
+1. **`memory-bank/projectbrief.md`** - Project goals, target keywords, success metrics
+2. **`memory-bank/techContext.md`** - Tech stack, critical file locations, architecture decisions
+3. **`memory-bank/activeContext.md`** - Current work focus, blockers, next immediate steps
+4. **`memory-bank/progress.md`** - Task tracking, session history, completed/pending tasks
+
+**Why**: This ensures you have full context before making any changes.
+
+### During Work
+- Update `memory-bank/activeContext.md` with current task (every 1-2 hours)
+- Mark completed tasks in `memory-bank/progress.md`
+- Keep all 4 files synchronized
+- Document blockers and questions
+
+### Before Session End
+Use the `/handoff` slash command:
+```bash
+/handoff
+```
+
+This will:
+1. Guide you through updating memory bank with final status
+2. Remind you to commit changes
+3. Prompt you to push to GitHub
+4. Prepare context for next IDE/session
+
+**Do NOT skip this step** - It ensures context is preserved.
+
+### Available Slash Commands
+- **`/resume`** - Full context from last session (includes all decisions, recent work, files touched)
+- **`/status`** - Quick status check (current focus, recent progress, blockers, next action)
+- **`/handoff`** - Update memory bank and prepare for IDE switch
+- **`/start`** - Initialize new session state
+
+### Same Rules Across All IDEs
+- **Cursor**: Uses `.cursorrules` file
+- **VS Code**: Uses `.vscode/.clinerules` for Cline extension
+- **Claude.ai**: Uses memory bank protocol in this CLAUDE.md file
+
+**All 3 IDEs follow identical memory bank protocol for consistency.**
+
+---
+
 ## Project Architecture
 
 ### Technology Stack

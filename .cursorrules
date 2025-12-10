@@ -1,0 +1,269 @@
+# Cursor AI Rules - Adam James Tulsa Website
+
+## 🚀 Session Start Protocol
+
+**CRITICAL**: At the start of EVERY session, read ALL memory bank files IN THIS ORDER:
+
+1. **Read** `memory-bank/projectbrief.md` - Understand project goals and context
+2. **Read** `memory-bank/techContext.md` - Learn tech stack and critical file locations
+3. **Read** `memory-bank/activeContext.md` - See what's currently being worked on
+4. **Read** `memory-bank/progress.md` - Review completed tasks and current status
+
+**Why**: This ensures you understand the full context before making any changes.
+
+---
+
+## 🛡️ Critical Implementation Rules
+
+### Video Background Implementation ⚠️
+**DO NOT MODIFY WITHOUT CAREFUL REVIEW**
+
+The homepage hero section has a critical looping video background:
+- **Video file**: `/public/images/adamspeakingengagement.mp4` (12.65 MB)
+- **Poster image**: `/public/images/adam-speaking-hero.jpg` (875 KB)
+- **Code location**: `app/page.tsx` lines 26-55
+- **Required attributes**: ALL 4 MUST be present: `autoPlay`, `muted`, `loop`, `playsInline`
+
+**Before editing this video element**:
+1. Read inline comments in `app/page.tsx` (lines 26-45)
+2. Read `docs/VIDEO-IMPLEMENTATION.md` completely
+3. Understand why each attribute is critical
+4. Test on mobile (especially iOS) after any changes
+
+**If video breaks**:
+- See `docs/VIDEO-IMPLEMENTATION.md` troubleshooting section
+- Check `docs/memory-bank.md` for critical implementation details
+
+### File Location Rules
+- ❌ DO NOT move `/public/images/adamspeakingengagement.mp4`
+- ❌ DO NOT move `/public/images/adam-speaking-hero.jpg`
+- ❌ DO NOT remove hobbies in `/public/images/hobbies/`
+- ✅ DO update code paths if you MUST move files
+- ✅ DO document any file moves immediately
+
+---
+
+## 📋 Before Making ANY Changes
+
+1. **Review Project Rules**: See `CLAUDE.md` for detailed project rules
+2. **Check Critical Details**: See `docs/VIDEO-IMPLEMENTATION.md` if touching video
+3. **Read Recent Work**: See `memory-bank/activeContext.md` for current focus
+4. **Verify Task List**: See `memory-bank/progress.md` for what's in progress
+
+---
+
+## ✏️ During Work
+
+### Update Memory Bank
+- Update `memory-bank/activeContext.md` with your current task
+- Mark completed tasks in `memory-bank/progress.md`
+- Update frequently (every 1-2 hours of work)
+
+### Code Quality Standards
+```bash
+npm run lint    # Must pass before committing
+npm run build   # Must succeed - no errors
+```
+
+### Performance Standards
+- **Lighthouse Score**: Never drop below 95
+- **Load Time**: Keep under 2 seconds
+- **Mobile**: Always test on actual mobile device
+
+---
+
+## 🔄 Before Session End (CRITICAL)
+
+**Use the `/handoff` slash command**:
+```
+/handoff
+```
+
+This will:
+1. Ask you to update memory bank with final status
+2. Remind you to commit changes
+3. Prompt you to push to GitHub
+
+**Do NOT skip this step** - It ensures context is preserved for the next IDE session.
+
+---
+
+## 💡 Slash Commands Available
+
+### `/resume` - Resume from Last Session
+- Reads all memory bank files
+- Shows what was done previously
+- Asks what to work on next
+- **Use at**: Session start OR when picking new task
+
+### `/status` - Quick Status Check
+- Shows current task and recent progress
+- Lists blockers and next steps
+- Does NOT ask what to work on
+- **Use at**: Mid-session check-ins
+
+### `/handoff` - Prepare for IDE Switch
+- Updates memory bank with final status
+- Reminds you to commit and push
+- Prepares context for other IDEs
+- **Use at**: End of session, before switching IDEs
+
+### `/start` - Start New Session
+- Initializes session state
+- Reads memory bank
+- Sets up initial context
+
+---
+
+## 🎯 Project-Specific Rules
+
+### Content Guidelines
+- ✅ Forward-looking content only (focus on PRESENT/FUTURE businesses)
+- ❌ NO redemption narrative focus (use sparingly if at all)
+- ✅ Emphasize community impact and business achievements
+- ✅ Include transparency about past but don't dwell on it
+- ✅ All pages 2000+ words (except short pages)
+
+### SEO Rules
+- ✅ Every page needs unique meta title and description
+- ✅ Include schema markup on all pages
+- ✅ Add 3-5 internal links per page
+- ✅ Optimize images to WebP format
+- ✅ Use Next.js Image component for all images
+- ✅ Test Lighthouse score (target 95+)
+
+### Code Style
+- ✅ Use TypeScript (NO any types without reason)
+- ✅ Component-based architecture
+- ✅ Tailwind CSS for styling
+- ✅ Framer Motion for animations
+- ✅ Server components by default
+- ✅ Client components only when needed (use 'use client')
+
+### Git Workflow
+- ✅ Commit frequently with clear messages
+- ✅ Always run `npm run lint` before committing
+- ✅ Never force push to main
+- ✅ Keep commits focused and atomic
+- ✅ Push daily at minimum
+
+---
+
+## ⚠️ DO NOT
+
+- ❌ Delete any of the 4 video HTML5 attributes without understanding why
+- ❌ Move video or poster files without updating code paths
+- ❌ Create new pages without 2000+ words of unique content
+- ❌ Use Eco Farms content (user not associated anymore)
+- ❌ Let PageSpeed score drop below 95
+- ❌ Skip memory bank updates
+- ❌ Forget to commit and push at end of day
+
+---
+
+## ✅ DO
+
+- ✅ Read memory bank at session start (all 4 files)
+- ✅ Update memory bank frequently during work
+- ✅ Test on mobile before considering task complete
+- ✅ Run lint and build tests before committing
+- ✅ Write clear, atomic commit messages
+- ✅ Use slash commands (/resume, /status, /handoff)
+- ✅ Reference relevant documentation before making changes
+- ✅ Ask questions if unclear about project direction
+
+---
+
+## 📚 Documentation Reference
+
+### Always Review Before Starting
+- **Project Overview**: `memory-bank/projectbrief.md`
+- **Tech Stack**: `memory-bank/techContext.md`
+- **Current Work**: `memory-bank/activeContext.md`
+- **Task Status**: `memory-bank/progress.md`
+
+### Before Touching Code
+- **Project Rules**: `CLAUDE.md`
+- **Video Implementation**: `docs/VIDEO-IMPLEMENTATION.md`
+- **Session History**: `docs/memory-bank.md`
+- **SEO Guide**: `docs/LOCAL-SEO-GUIDE.md`
+
+### Implementation Plans
+- **Current Plan**: `.claude/plans/nifty-spinning-summit.md`
+- **Related Docs**: `docs/` folder
+
+---
+
+## 🔧 Development Commands
+
+```bash
+# Start development
+npm run dev              # Starts on localhost:3000
+
+# Build and test
+npm run build            # Production build
+npm run lint             # Linting checks
+npm run start            # Production server
+
+# Performance audit
+npx lighthouse http://localhost:3000 --view
+```
+
+---
+
+## 🎓 Important Notes
+
+### Memory Bank System
+- Memory bank is your source of truth
+- Always keep it updated
+- Use it to maintain context across IDE switches
+- The 4 files (projectbrief, techContext, activeContext, progress) work together
+
+### Cross-IDE Consistency
+- Use same rules in Cursor, VS Code, and Claude.ai
+- Same memory bank structure across all IDEs
+- Same slash commands in all environments
+- Consistency prevents mistakes and maintains flow
+
+### Video Background
+- This is CRITICAL to homepage credibility
+- It's been fixed once, don't break it again
+- Full documentation exists for a reason
+- Always refer to docs before making changes
+
+---
+
+## 📞 Questions or Issues?
+
+1. Check `memory-bank/activeContext.md` for current blockers
+2. Read relevant documentation sections
+3. Review git history to see how similar issues were solved
+4. Ask AI assistant for clarification before making big changes
+
+---
+
+## 🎯 Session Checklist
+
+**At Start**:
+- [ ] Read all 4 memory bank files
+- [ ] Check activeContext.md for current task
+- [ ] Review progress.md for blocked items
+- [ ] Open `/handoff` from previous session
+
+**During Work**:
+- [ ] Update memory bank every 1-2 hours
+- [ ] Run lint/build tests frequently
+- [ ] Test on mobile before submitting
+- [ ] Commit often with clear messages
+
+**At End**:
+- [ ] Run `/handoff` command
+- [ ] Update memory bank with final status
+- [ ] Git commit and push
+- [ ] Note any blockers for next session
+
+---
+
+**Version**: 1.0
+**Last Updated**: December 2024
+**Status**: Active - Critical for workflow consistency
