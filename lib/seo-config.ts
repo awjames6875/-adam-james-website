@@ -115,7 +115,7 @@ export const SEO_CONFIG = {
       country: 'US',
     },
     contact: {
-      phone: '+1-918-555-0123',
+      phone: '+1-918-553-5746',
       email: 'contact@adamjamestulsa.com',
     },
   },

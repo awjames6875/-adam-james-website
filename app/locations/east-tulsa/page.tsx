@@ -59,7 +59,7 @@ export default function EastTulsaPage() {
             </p>
 
             <p className="mb-6">
-              Through Safe Harbor Mental Health, Adam James provides culturally competent pediatric therapy and family mental health services that serve east Tulsa's diverse population. These services are delivered with attention to language needs, cultural preferences, and community-specific challenges that affect mental health and family wellbeing.
+              Through Safe Harbor Behavioral Health, Adam James provides culturally competent pediatric therapy and family mental health services that serve east Tulsa's diverse population. These services are delivered with attention to language needs, cultural preferences, and community-specific challenges that affect mental health and family wellbeing.
             </p>
 
             <p className="mb-6">
@@ -106,7 +106,7 @@ export default function EastTulsaPage() {
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-teal-900 mb-4">Multicultural Mental Health</h3>
               <p className="text-gray-700 mb-4">
-                Culturally competent pediatric therapy and family mental health services that serve east Tulsa's diverse population through Safe Harbor Mental Health's specialized programs.
+                Culturally competent pediatric therapy and family mental health services that serve east Tulsa's diverse population through Safe Harbor Behavioral Health's specialized programs.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Bilingual therapy services</li>
@@ -192,7 +192,7 @@ export default function EastTulsaPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-cyan-400 hover:bg-cyan-500 text-teal-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-teal-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-teal-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

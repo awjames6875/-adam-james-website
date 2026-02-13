@@ -122,7 +122,7 @@ export default function ClaremoregPage() {
               A regional healthcare services provider based in Claremore approached Adam James for assistance expanding their services to better serve the growing population throughout Rogers County while maintaining their reputation for personalized care and community involvement.
             </p>
             <p className="text-gray-700 mb-4">
-              Adam James provided comprehensive business development services including strategic planning, technology implementation through GrowthGenix AI, and partnerships with Safe Harbor Mental Health for integrated family services. The expansion strategy balanced growth with community focus, ensuring services remained accessible and culturally appropriate.
+              Adam James provided comprehensive business development services including strategic planning, technology implementation through GrowthGenix AI, and partnerships with Safe Harbor Behavioral Health for integrated family services. The expansion strategy balanced growth with community focus, ensuring services remained accessible and culturally appropriate.
             </p>
             <p className="text-gray-700 mb-4">
               The healthcare provider successfully expanded to serve three additional communities while increasing their Claremore-based staff by 60%. They now provide comprehensive healthcare services throughout northeast Oklahoma while maintaining their commitment to community-centered care and local employment.
@@ -159,7 +159,7 @@ export default function ClaremoregPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-teal-400 hover:bg-teal-500 text-emerald-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-emerald-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-emerald-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

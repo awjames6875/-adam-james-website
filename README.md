@@ -7,7 +7,7 @@
 This is the official website for **Adam James**, a Tulsa-based entrepreneur dedicated to serving the community through three thriving businesses:
 
 1. **Integrity Corporate Housing** - Premium corporate housing solutions
-2. **Safe Harbor Mental Health** - Comprehensive mental health services
+2. **Safe Harbor Behavioral Health** - Comprehensive mental health services
 3. **GrowthGenix.ai** - AI-powered business growth solutions
 
 ### Mission
@@ -186,7 +186,7 @@ NEXT_PUBLIC_SITE_URL=https://adamjamestulsa.com
 
 ### Business Pages (Coming Soon)
 - **Integrity Corporate Housing** (`/businesses/integrity-corporate-housing`)
-- **Safe Harbor Mental Health** (`/businesses/safe-harbor-mental-health`)
+- **Safe Harbor Behavioral Health** (`/businesses/safe-harbor-mental-health`)
 - **GrowthGenix.ai** (`/businesses/growthgenix-ai`)
 
 ---

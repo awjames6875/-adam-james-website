@@ -23,7 +23,7 @@
 2. **Reputation Management Research** (COMPLETED):
    - Conducted web search for "Adam James Tulsa"
    - Found negative SERP results: Federal case 4:20-cr-00327-GKF, PPP fraud, 2-year prison sentence
-   - Found positive results: Integrity Corporate Housing, Safe Harbor Mental Health, Landmark Education
+   - Found positive results: Integrity Corporate Housing, Safe Harbor Behavioral Health, Landmark Education
    - Identified problem: Not enough positive content to dilute negative results
 
 3. **Created Podcast-First Reputation Strategy** (PLAN CREATED, NOT IMPLEMENTED):
@@ -164,7 +164,7 @@ Per git status:
 | 2008 | Lost over $500,000, filed bankruptcy |
 | 2010 | Kent State Master's program (completed coursework) |
 | 2013 | Moved to Tulsa |
-| 2015 | Started Safe Harbor Mental Health |
+| 2015 | Started Safe Harbor Behavioral Health |
 | 2017 | Started Integrity Corporate Housing |
 | 2023 | Started GrowthGenix.ai |
 

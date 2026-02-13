@@ -252,7 +252,7 @@
 
 **Long-Tail Keywords:**
 - "Adam James Integrity Corporate Housing"
-- "Adam James Safe Harbor Mental Health"
+- "Adam James Safe Harbor Behavioral Health"
 - "Adam James GrowthGenix.ai"
 - "Tulsa entrepreneur helping families"
 - "Tulsa business leader second chances"

@@ -88,7 +88,7 @@ export default function CatoosaPage() {
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Workforce Mental Health</h3>
               <p className="text-gray-700 mb-4">
-                Mental health and family support services designed for industrial workers and their families through Safe Harbor Mental Health's specialized programs.
+                Mental health and family support services designed for industrial workers and their families through Safe Harbor Behavioral Health's specialized programs.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Industrial worker counseling</li>
@@ -159,7 +159,7 @@ export default function CatoosaPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-slate-400 hover:bg-slate-500 text-slate-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

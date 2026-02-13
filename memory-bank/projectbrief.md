@@ -25,7 +25,7 @@ Achieve #1 Google ranking for "Adam James Tulsa" and establish credibility as Tu
    - 200+ properties
    - Serves employees relocating to Tulsa
 
-2. **Safe Harbor Mental Health** - Mental health services and sober living
+2. **Safe Harbor Behavioral Health** - Mental health services and sober living
    - 1,000+ individuals served
    - 500+ families supported
    - Therapeutic services in Tulsa

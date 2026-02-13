@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { SchemaMarkup } from '@/components/seo'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -17,25 +16,27 @@ export const metadata: Metadata = {
 export default function BuildingBusinessesTulsaPost() {
   return (
     <>
-      <SchemaMarkup 
-        type="BlogPosting"
-        data={{
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": "Building Successful Businesses in Tulsa: A Strategic Guide",
-          "author": {
-            "@type": "Person",
-            "name": "Adam James",
-            "alternateName": "Adam James Tulsa"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Adam James Tulsa"
-          },
-          "datePublished": "2025-01-15",
-          "dateModified": "2025-01-15",
-          "description": "Expert insights on building successful businesses in Tulsa, Oklahoma",
-          "url": "https://adamjamestulsa.com/blog/building-successful-businesses-tulsa"
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "Building Successful Businesses in Tulsa: A Strategic Guide",
+            "author": {
+              "@type": "Person",
+              "name": "Adam James",
+              "alternateName": "Adam James Tulsa"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Adam James Tulsa"
+            },
+            "datePublished": "2025-01-15",
+            "dateModified": "2025-01-15",
+            "description": "Expert insights on building successful businesses in Tulsa, Oklahoma",
+            "url": "https://adamjamestulsa.com/blog/building-successful-businesses-tulsa"
+          })
         }}
       />
       

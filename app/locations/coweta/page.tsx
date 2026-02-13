@@ -87,7 +87,7 @@ export default function CowetaPage() {
             <p className="text-xl mb-8 text-green-100">Discover how Adam James can help your business thrive while strengthening Coweta's community bonds.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:contact@adamjamestulsa.com" className="bg-emerald-400 hover:bg-emerald-500 text-green-900 px-8 py-3 rounded-lg font-semibold transition-colors">Schedule Consultation</a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-green-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-green-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
             </div>
           </div>
         </section>

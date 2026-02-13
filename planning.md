@@ -255,7 +255,7 @@ const keywordMap = {
       long_tail: ["Adam James corporate housing business Tulsa"]
     },
     "safe-harbor-mental-health": {
-      primary: "Adam James Safe Harbor Mental Health",
+      primary: "Adam James Safe Harbor Behavioral Health",
       secondary: ["Adam James mental health Tulsa"],
       long_tail: ["Adam James pediatric therapy Tulsa Oklahoma"]
     },

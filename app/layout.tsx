@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import { Suspense } from 'react'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
@@ -78,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <body className={inter.className}>
-        <GoogleAnalytics />
+        <Suspense fallback={null}><GoogleAnalytics /></Suspense>
         <FacebookPixel />
         <LinkedInInsightTag />
         <Navigation />

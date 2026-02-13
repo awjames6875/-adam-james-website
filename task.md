@@ -88,7 +88,7 @@
 - [ ] Create BusinessShowcase.tsx component
 - [ ] Design business card components
 - [ ] Add Integrity Corporate Housing card with metrics
-- [ ] Add Safe Harbor Mental Health card with impact numbers
+- [ ] Add Safe Harbor Behavioral Health card with impact numbers
 - [ ] Add GrowthGenix.ai card with innovation highlights
 - [ ] Implement hover effects and animations
 - [ ] Add "Visit Website" CTAs for each
@@ -474,7 +474,7 @@
 
 ### Link Building
 - [ ] Add links from Integrity Corporate Housing site
-- [ ] Add links from Safe Harbor Mental Health site
+- [ ] Add links from Safe Harbor Behavioral Health site
 - [ ] Add links from GrowthGenix.ai site
 - [ ] Update all social media profiles with website link
 - [ ] Create Google My Business profile

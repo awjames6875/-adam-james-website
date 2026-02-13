@@ -60,7 +60,7 @@ export default function OwassoPage() {
             </p>
 
             <p className="mb-6">
-              <strong>Entrepreneur services Owasso</strong> delivered through Adam James's comprehensive business portfolio address the full spectrum of opportunities present in this growing market, from Safe Harbor Mental Health's family-focused services to GrowthGenix AI's technology solutions that help local businesses compete in regional and national markets.
+              <strong>Entrepreneur services Owasso</strong> delivered through Adam James's comprehensive business portfolio address the full spectrum of opportunities present in this growing market, from Safe Harbor Behavioral Health's family-focused services to GrowthGenix AI's technology solutions that help local businesses compete in regional and national markets.
             </p>
 
             <p className="mb-6">
@@ -122,7 +122,7 @@ export default function OwassoPage() {
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-indigo-900 mb-4">Family-Focused Mental Health</h3>
               <p className="text-gray-700 mb-4">
-                Specialized pediatric therapy and family mental health services that serve Owasso's growing population of families through Safe Harbor Mental Health's community-centered programs.
+                Specialized pediatric therapy and family mental health services that serve Owasso's growing population of families through Safe Harbor Behavioral Health's community-centered programs.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Pediatric therapy excellence</li>
@@ -182,7 +182,7 @@ export default function OwassoPage() {
               A new family healthcare practice sought to establish operations in Owasso to serve the growing population of young families attracted to the area's excellent schools and quality of life. The practice needed comprehensive support for location selection, technology implementation, and community integration.
             </p>
             <p className="text-gray-700 mb-4">
-              Adam James coordinated a comprehensive launch strategy that included market analysis, facility planning, technology integration through GrowthGenix AI, and partnerships with Safe Harbor Mental Health for integrated family services. The practice also utilized Integrity Corporate Housing for relocating staff and visiting specialists during the startup phase.
+              Adam James coordinated a comprehensive launch strategy that included market analysis, facility planning, technology integration through GrowthGenix AI, and partnerships with Safe Harbor Behavioral Health for integrated family services. The practice also utilized Integrity Corporate Housing for relocating staff and visiting specialists during the startup phase.
             </p>
             <p className="text-gray-700 mb-4">
               The practice successfully opened with a full patient roster within six months and has maintained 98% patient satisfaction scores while serving over 1,200 families in Owasso and surrounding communities. They've become a cornerstone of the community's healthcare infrastructure and have plans for additional services based on community needs.
@@ -265,7 +265,7 @@ export default function OwassoPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-indigo-400 hover:bg-indigo-500 text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

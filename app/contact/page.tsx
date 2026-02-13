@@ -49,7 +49,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600">(918) 555-0123</p>
+                      <p className="text-gray-600">(918) 553-5746</p>
                       <p className="text-sm text-gray-500">Mon-Fri, 8:00 AM - 6:00 PM CST</p>
                     </div>
                   </div>
@@ -94,19 +94,19 @@ export default function ContactPage() {
                   <div className="border-l-4 border-blue-500 pl-4">
                     <h4 className="font-semibold text-gray-900">Corporate Housing</h4>
                     <p className="text-gray-600">housing@integritystone.com</p>
-                    <p className="text-sm text-gray-500">(918) 555-0124</p>
+                    <p className="text-sm text-gray-500">(918) 553-5746</p>
                   </div>
                   
                   <div className="border-l-4 border-green-500 pl-4">
                     <h4 className="font-semibold text-gray-900">Mental Health Services</h4>
                     <p className="text-gray-600">care@safeharbormh.com</p>
-                    <p className="text-sm text-gray-500">(918) 555-0125</p>
+                    <p className="text-sm text-gray-500">(918) 553-5746</p>
                   </div>
                   
                   <div className="border-l-4 border-purple-500 pl-4">
                     <h4 className="font-semibold text-gray-900">Business Consulting</h4>
                     <p className="text-gray-600">consulting@growthgenix.ai</p>
-                    <p className="text-sm text-gray-500">(918) 555-0126</p>
+                    <p className="text-sm text-gray-500">(918) 553-5746</p>
                   </div>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                   If you're experiencing a mental health crisis, please reach out immediately:
                 </p>
                 <div className="space-y-2 text-red-800">
-                  <p><strong>Crisis Hotline:</strong> (918) 555-0127</p>
+                  <p><strong>Crisis Hotline:</strong> (918) 553-5746</p>
                   <p><strong>24/7 Support:</strong> Available</p>
                   <p><strong>National Suicide Prevention Lifeline:</strong> 988</p>
                 </div>

@@ -307,7 +307,7 @@ const ContactCTA: React.FC<ContactCTAProps> = ({
           <h3 className="text-h5 font-semibold text-white mb-2">Call Directly</h3>
           <p className="text-body text-gray-300 mb-1">Available Mon-Fri, 8AM-6PM CST</p>
           <a href="tel:9185550123" className="text-body font-medium text-primary hover:text-primary-400 transition-colors">
-            (918) 555-0123
+            (918) 553-5746
           </a>
         </div>
       </div>

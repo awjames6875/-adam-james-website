@@ -71,7 +71,7 @@
 - **Metrics:** "50+ corporate clients served, 200+ furnished properties"
 - **CTA:** "Learn More About Corporate Housing"
 
-#### 2. Safe Harbor Mental Health
+#### 2. Safe Harbor Behavioral Health
 - **Headline:** "Comprehensive Mental Health Services"
 - **Description:** "Supporting Tulsa families through professional mental health care, therapy services, and community mental health advocacy."
 - **Metrics:** "1,000+ individuals served, 500+ families supported"
@@ -136,7 +136,7 @@
 - Growth and expansion
 - Community impact
 
-#### 5. Creating Safe Harbor Mental Health (400 words)
+#### 5. Creating Safe Harbor Behavioral Health (400 words)
 - Personal motivation for mental health advocacy
 - Services provided to Tulsa families
 - Team and approach

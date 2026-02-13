@@ -414,7 +414,7 @@ export default function IntegrityCorporateHousingPage() {
                 href="tel:9185550123"
                 className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-amber-800 transition-colors"
               >
-                Call (918) 555-0123
+                Call (918) 553-5746
               </Link>
             </div>
           </div>

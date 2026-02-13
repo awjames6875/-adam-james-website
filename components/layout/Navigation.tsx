@@ -31,7 +31,7 @@ const Navigation = () => {
     },
     {
       href: '/businesses/safe-harbor-mental-health',
-      label: 'Safe Harbor Mental Health',
+      label: 'Safe Harbor Behavioral Health',
       description: 'Comprehensive mental health services'
     },
     {

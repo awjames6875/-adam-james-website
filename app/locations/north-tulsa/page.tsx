@@ -59,7 +59,7 @@ export default function NorthTulsaPage() {
             </p>
 
             <p className="mb-6">
-              Through his work with Safe Harbor Mental Health, Adam James has brought crucial pediatric therapy and family counseling services to north Tulsa families who previously faced significant barriers to accessing quality mental healthcare. These services are provided with cultural sensitivity and community input, ensuring they truly serve the population's needs.
+              Through his work with Safe Harbor Behavioral Health, Adam James has brought crucial pediatric therapy and family counseling services to north Tulsa families who previously faced significant barriers to accessing quality mental healthcare. These services are provided with cultural sensitivity and community input, ensuring they truly serve the population's needs.
             </p>
 
             <p className="mb-6">
@@ -82,7 +82,7 @@ export default function NorthTulsaPage() {
             <div className="bg-orange-50 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-orange-900 mb-4">Community Health Services</h3>
               <p className="text-gray-700">
-                Through Safe Harbor Mental Health and community partnerships, Adam James ensures north Tulsa families have access to quality healthcare services, with special attention to mental health support and pediatric therapy needs.
+                Through Safe Harbor Behavioral Health and community partnerships, Adam James ensures north Tulsa families have access to quality healthcare services, with special attention to mental health support and pediatric therapy needs.
               </p>
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function NorthTulsaPage() {
           <div className="bg-gray-50 p-8 rounded-lg mb-8">
             <h3 className="text-2xl font-semibold text-orange-900 mb-4">Youth Mental Health Initiative</h3>
             <p className="text-gray-700 mb-4">
-              Recognizing the unique mental health challenges facing young people in north Tulsa, Adam James partnered with Safe Harbor Mental Health to develop specialized programs that provide accessible, culturally appropriate mental health services for children and adolescents.
+              Recognizing the unique mental health challenges facing young people in north Tulsa, Adam James partnered with Safe Harbor Behavioral Health to develop specialized programs that provide accessible, culturally appropriate mental health services for children and adolescents.
             </p>
             <p className="text-gray-700 mb-4">
               The initiative has served over 340 young people and their families, providing therapy, counseling, and support services that were previously unavailable in the community. The program has achieved a 94% client satisfaction rate and has been recognized as a model for community-based mental health service delivery.
@@ -298,7 +298,7 @@ export default function NorthTulsaPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-orange-400 hover:bg-orange-500 text-red-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Discuss Partnership
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-red-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-red-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

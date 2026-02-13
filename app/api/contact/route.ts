@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ 
         error: 'Please check your form data and try again.',
-        details: error.errors 
+        details: error.issues 
       }, { status: 400 })
     }
     

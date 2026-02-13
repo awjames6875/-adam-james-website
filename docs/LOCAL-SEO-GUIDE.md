@@ -48,7 +48,7 @@
 
 ### Step 6: Add Products (Optional)
 - Integrity Corporate Housing packages
-- Safe Harbor Mental Health programs
+- Safe Harbor Behavioral Health programs
 - GrowthGenix.ai services
 
 ---

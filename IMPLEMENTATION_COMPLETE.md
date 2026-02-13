@@ -8,7 +8,7 @@
 - **Hero Component**: Updated to use `infrontofcomputer.png`
 - **Business Showcase**: Added images for all 3 businesses:
   - Integrity Corporate Housing → `integrity-corporate-housing.jpg`
-  - Safe Harbor Mental Health → `safe-harbor-mental-health.jpg`
+  - Safe Harbor Behavioral Health → `safe-harbor-mental-health.jpg`
   - GrowthGenix.ai → `growthgenix-ai.jpg`
 - **Schema Markup**: All image paths updated to use actual files
 - **Social Media Cards**: Using `adam-james-og-default.jpg` and `adam-james-profile.jpg`

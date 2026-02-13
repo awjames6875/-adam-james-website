@@ -60,7 +60,7 @@ export default function WagonerPage() {
             </div>
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-yellow-900 mb-4">Community-Centered Services</h3>
-              <p className="text-gray-700 mb-4">Family and community support services that serve Wagoner's heritage-focused population through Safe Harbor Mental Health's traditional values approach.</p>
+              <p className="text-gray-700 mb-4">Family and community support services that serve Wagoner's heritage-focused population through Safe Harbor Behavioral Health's traditional values approach.</p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Family business consulting</li>
                 <li>• Community mental health services</li>
@@ -87,7 +87,7 @@ export default function WagonerPage() {
             <p className="text-xl mb-8 text-amber-100">Discover how Adam James can help your business honor Wagoner's heritage while building for the future.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:contact@adamjamestulsa.com" className="bg-amber-400 hover:bg-amber-500 text-amber-900 px-8 py-3 rounded-lg font-semibold transition-colors">Schedule Consultation</a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-amber-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-amber-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
             </div>
           </div>
         </section>

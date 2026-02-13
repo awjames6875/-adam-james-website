@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'google-site-verification-token-here',
-    bing: 'bing-site-verification-token-here',
+    // bing: 'bing-site-verification-token-here',
   },
   other: {
     'application-name': 'Adam James Tulsa',

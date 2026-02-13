@@ -60,7 +60,7 @@ export default function VerdigrisPage() {
             </div>
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-green-900 mb-4">Community Integration Services</h3>
-              <p className="text-gray-700 mb-4">Family and business support services that help new residents and businesses integrate into Verdigris' developing community through Safe Harbor Mental Health.</p>
+              <p className="text-gray-700 mb-4">Family and business support services that help new residents and businesses integrate into Verdigris' developing community through Safe Harbor Behavioral Health.</p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Relocation support services</li>
                 <li>• Community integration counseling</li>
@@ -87,7 +87,7 @@ export default function VerdigrisPage() {
             <p className="text-xl mb-8 text-teal-100">Discover how Adam James can help your business grow with Verdigris' expanding opportunities.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:contact@adamjamestulsa.com" className="bg-teal-400 hover:bg-teal-500 text-teal-900 px-8 py-3 rounded-lg font-semibold transition-colors">Schedule Consultation</a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-teal-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-teal-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
             </div>
           </div>
         </section>

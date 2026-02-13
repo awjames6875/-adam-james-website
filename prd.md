@@ -25,7 +25,7 @@
 
 - **Three Business Showcase**
   - Integrity Corporate Housing (with link)
-  - Safe Harbor Mental Health (with link)
+  - Safe Harbor Behavioral Health (with link)
   - GrowthGenix.ai (with link)
   - Each with metrics and testimonials
 
@@ -148,7 +148,7 @@ Every piece of content = 8 platform posts:
 
 **Long-tail Keywords:**
 - Adam James Tulsa entrepreneur
-- Adam James Safe Harbor Mental Health
+- Adam James Safe Harbor Behavioral Health
 - Adam James Integrity Corporate Housing
 - Adam James Tulsa community leader
 - Adam James business owner Tulsa
@@ -189,7 +189,7 @@ Every piece of content = 8 platform posts:
 
 #### External Link Strategy
 - FROM: Integrity Corporate Housing → TO: adamjamestulsa.com
-- FROM: Safe Harbor Mental Health → TO: adamjamestulsa.com
+- FROM: Safe Harbor Behavioral Health → TO: adamjamestulsa.com
 - FROM: GrowthGenix.ai → TO: adamjamestulsa.com
 - FROM: Social media profiles → TO: adamjamestulsa.com
 - FROM: Google My Business listings → TO: adamjamestulsa.com

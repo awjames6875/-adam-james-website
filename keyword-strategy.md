@@ -71,14 +71,14 @@
 - "Adam James Integrity Corporate Housing Tulsa Oklahoma"
 - "corporate housing Tulsa Adam James Integrity"
 
-### Safe Harbor Mental Health
-**Primary**: "Adam James Safe Harbor Mental Health Tulsa"
+### Safe Harbor Behavioral Health
+**Primary**: "Adam James Safe Harbor Behavioral Health Tulsa"
 **Secondary**:
 - Adam James mental health Tulsa
-- Safe Harbor Mental Health Adam James
+- Safe Harbor Behavioral Health Adam James
 - Tulsa mental health Adam James
 **Long-tail**:
-- "Adam James Safe Harbor Mental Health Tulsa Oklahoma"
+- "Adam James Safe Harbor Behavioral Health Tulsa Oklahoma"
 - "pediatric mental health Tulsa Adam James"
 
 ### GrowthGenix AI
@@ -164,7 +164,7 @@
 
 ### Homepage Meta Tags
 **Title**: "Adam James Tulsa | Oklahoma Entrepreneur & Business Owner"
-**Description**: "Adam James is a leading Tulsa entrepreneur with successful businesses including Integrity Corporate Housing, Safe Harbor Mental Health, and GrowthGenix AI. Discover how Adam James transforms lives and communities across Oklahoma."
+**Description**: "Adam James is a leading Tulsa entrepreneur with successful businesses including Integrity Corporate Housing, Safe Harbor Behavioral Health, and GrowthGenix AI. Discover how Adam James transforms lives and communities across Oklahoma."
 
 ### About Page Meta Tags
 **Title**: "About Adam James | Tulsa Entrepreneur & Business Leader"
@@ -229,7 +229,7 @@
   "jobTitle": "Entrepreneur",
   "worksFor": [
     "Integrity Corporate Housing",
-    "Safe Harbor Mental Health", 
+    "Safe Harbor Behavioral Health", 
     "GrowthGenix AI"
   ],
   "address": {

@@ -94,7 +94,7 @@ const socialLinks = [
 ];
 
 const contactInfo = {
-  phone: '(918) 555-0123',
+  phone: '(918) 553-5746',
   email: 'adam@adamjamestulsa.com',
   address: {
     street: '123 Main Street',

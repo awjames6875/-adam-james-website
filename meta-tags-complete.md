@@ -11,7 +11,7 @@
 
 ### Homepage
 **Title**: `Adam James Tulsa | Oklahoma Entrepreneur & Business Leader`
-**Description**: `Adam James is Tulsa's leading entrepreneur with successful businesses including Integrity Corporate Housing, Safe Harbor Mental Health, and GrowthGenix AI. Discover innovation in Oklahoma.`
+**Description**: `Adam James is Tulsa's leading entrepreneur with successful businesses including Integrity Corporate Housing, Safe Harbor Behavioral Health, and GrowthGenix AI. Discover innovation in Oklahoma.`
 **Keywords**: Adam James Tulsa, Tulsa entrepreneur, Oklahoma business owner
 
 ### About Page
@@ -30,7 +30,7 @@
 
 ### Businesses Hub
 **Title**: `Adam James Businesses | Tulsa Entrepreneur Portfolio`
-**Description**: `Explore Adam James' diverse business portfolio in Tulsa - from Integrity Corporate Housing to Safe Harbor Mental Health and GrowthGenix AI technology solutions.`
+**Description**: `Explore Adam James' diverse business portfolio in Tulsa - from Integrity Corporate Housing to Safe Harbor Behavioral Health and GrowthGenix AI technology solutions.`
 **Keywords**: Adam James businesses, Tulsa entrepreneur companies, Adam James portfolio
 
 ### Integrity Corporate Housing
@@ -38,9 +38,9 @@
 **Description**: `Discover how Adam James built Integrity Corporate Housing into Tulsa's premier temporary housing solution for professionals and businesses across Oklahoma.`
 **Keywords**: Adam James Integrity Corporate Housing, corporate housing Tulsa, Adam James housing business
 
-### Safe Harbor Mental Health
-**Title**: `Adam James Safe Harbor Mental Health | Tulsa Therapy`
-**Description**: `Learn about Adam James' mission with Safe Harbor Mental Health, providing innovative pediatric therapy and mental health services throughout Tulsa and Oklahoma.`
+### Safe Harbor Behavioral Health
+**Title**: `Adam James Safe Harbor Behavioral Health | Tulsa Therapy`
+**Description**: `Learn about Adam James' mission with Safe Harbor Behavioral Health, providing innovative pediatric therapy and mental health services throughout Tulsa and Oklahoma.`
 **Keywords**: Adam James Safe Harbor, mental health Tulsa, Adam James therapy services
 
 ### GrowthGenix AI
@@ -167,7 +167,7 @@
 
 ### Mental Health Services
 **Title**: `Mental Health Services Tulsa Adam James | Safe Harbor`
-**Description**: `Explore Adam James' mental health services in Tulsa through Safe Harbor Mental Health. Innovative pediatric therapy and counseling solutions in Oklahoma.`
+**Description**: `Explore Adam James' mental health services in Tulsa through Safe Harbor Behavioral Health. Innovative pediatric therapy and counseling solutions in Oklahoma.`
 **Keywords**: mental health services Tulsa Adam James, therapy Tulsa, counseling services Oklahoma
 
 ### Business Consulting
@@ -221,7 +221,7 @@
 
 ### Mental Health Revolution Oklahoma
 **Title**: `Mental Health Revolution Oklahoma Adam James | Advocacy`
-**Description**: `Discover how Adam James leads the mental health revolution in Oklahoma through Safe Harbor Mental Health and community advocacy initiatives.`
+**Description**: `Discover how Adam James leads the mental health revolution in Oklahoma through Safe Harbor Behavioral Health and community advocacy initiatives.`
 **Keywords**: mental health revolution Oklahoma Adam James, mental health advocacy Tulsa, Oklahoma therapy services
 
 ### Corporate Housing Trends Tulsa
@@ -256,7 +256,7 @@
 
 ### Transforming Lives Mental Health
 **Title**: `Transforming Lives Mental Health Adam James | Impact Stories`
-**Description**: `Discover how Adam James transforms lives through mental health services in Oklahoma. Real impact stories from Safe Harbor Mental Health.`
+**Description**: `Discover how Adam James transforms lives through mental health services in Oklahoma. Real impact stories from Safe Harbor Behavioral Health.`
 **Keywords**: transforming lives mental health Adam James, Oklahoma mental health impact, therapy success stories Tulsa
 
 ### Real Estate Opportunities Tulsa

@@ -88,7 +88,7 @@ export default function SapulpaPage() {
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-red-900 mb-4">Community Mental Health</h3>
               <p className="text-gray-700 mb-4">
-                Family-focused mental health and counseling services that serve Sapulpa's community through Safe Harbor Mental Health's culturally sensitive programs.
+                Family-focused mental health and counseling services that serve Sapulpa's community through Safe Harbor Behavioral Health's culturally sensitive programs.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Family therapy and counseling</li>
@@ -157,7 +157,7 @@ export default function SapulpaPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-amber-400 hover:bg-amber-500 text-orange-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-orange-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-orange-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

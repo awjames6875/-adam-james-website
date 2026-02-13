@@ -60,7 +60,7 @@ export default function BrokenArrowPage() {
             </p>
 
             <p className="mb-6">
-              <strong>Business services Broken Arrow</strong> delivered through Adam James's comprehensive business portfolio address the full spectrum of needs present in this dynamic market, from Safe Harbor Mental Health's family-focused therapy services to GrowthGenix AI's cutting-edge technology solutions that help local businesses compete in national and international markets.
+              <strong>Business services Broken Arrow</strong> delivered through Adam James's comprehensive business portfolio address the full spectrum of needs present in this dynamic market, from Safe Harbor Behavioral Health's family-focused therapy services to GrowthGenix AI's cutting-edge technology solutions that help local businesses compete in national and international markets.
             </p>
           </div>
         </section>
@@ -114,7 +114,7 @@ export default function BrokenArrowPage() {
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-green-900 mb-4">Family Mental Health Excellence</h3>
               <p className="text-gray-700 mb-4">
-                Advanced pediatric therapy and family mental health services designed for Broken Arrow's health-conscious families through Safe Harbor Mental Health.
+                Advanced pediatric therapy and family mental health services designed for Broken Arrow's health-conscious families through Safe Harbor Behavioral Health.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Pediatric therapy specialization</li>
@@ -148,7 +148,7 @@ export default function BrokenArrowPage() {
               A multi-specialty healthcare practice with a strong reputation in Broken Arrow approached Adam James for assistance expanding their services to serve the city's growing population while maintaining their commitment to personalized care and community involvement.
             </p>
             <p className="text-gray-700 mb-4">
-              The expansion required sophisticated technology integration, staff training, and facility development. Adam James coordinated services across his business portfolio, providing technology consulting through GrowthGenix AI, temporary housing for relocating specialists through Integrity Corporate Housing, and mental health integration through Safe Harbor Mental Health partnerships.
+              The expansion required sophisticated technology integration, staff training, and facility development. Adam James coordinated services across his business portfolio, providing technology consulting through GrowthGenix AI, temporary housing for relocating specialists through Integrity Corporate Housing, and mental health integration through Safe Harbor Behavioral Health partnerships.
             </p>
             <p className="text-gray-700 mb-4">
               The practice successfully opened two new locations, expanded their service offerings to include specialized pediatric care, and increased their capacity by 140% while maintaining patient satisfaction scores above 95%. They now serve over 2,400 families throughout Broken Arrow and surrounding communities.
@@ -185,7 +185,7 @@ export default function BrokenArrowPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-emerald-400 hover:bg-emerald-500 text-green-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-green-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-green-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

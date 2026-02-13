@@ -126,7 +126,7 @@ Save it!
 ### Perfect for Your Businesses:
 - **GrowthGenix.ai**: AI automation content
 - **Integrity Corporate Housing**: Remote work tech trends
-- **Safe Harbor Mental Health**: Tech for mental health services
+- **Safe Harbor Behavioral Health**: Tech for mental health services
 - **Personal Brand**: Adam James as tech-savvy Tulsa entrepreneur
 
 ---

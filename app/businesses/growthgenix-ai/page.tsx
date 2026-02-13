@@ -40,7 +40,7 @@ const growthGenixBusinessData = {
   },
   url: 'https://adamjamestulsa.com/businesses/growthgenix-ai',
   serviceArea: {
-    '@type': 'State',
+    '@type': 'AdministrativeArea' as const,
     name: 'Oklahoma',
   },
 }
@@ -553,7 +553,7 @@ export default function GrowthGenixPage() {
                 href="/businesses/safe-harbor-mental-health"
                 className="text-purple-600 hover:text-purple-700 font-semibold hover:underline"
               >
-                Safe Harbor Mental Health →
+                Safe Harbor Behavioral Health →
               </Link>
               <Link 
                 href="/my-story"

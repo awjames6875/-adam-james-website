@@ -361,7 +361,7 @@ export default function Home() {
                 image: "/images/integrity-corporate-housing.jpg"
               },
               {
-                title: "Safe Harbor Mental Health",
+                title: "Safe Harbor Behavioral Health",
                 description: "Comprehensive mental health services supporting Tulsa families. Our caring therapeutic services help individuals and families find hope, healing, and new paths forward.",
                 metrics: "1,000+ individuals served, 500+ families supported",
                 gradient: "from-sky-500 to-sky-600",

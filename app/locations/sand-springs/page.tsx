@@ -121,7 +121,7 @@ export default function SandSpringsPage() {
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-blue-900 mb-4">Community Mental Health</h3>
               <p className="text-gray-700 mb-4">
-                Accessible mental health and family counseling services designed for Sand Springs families through Safe Harbor Mental Health's community-focused programs.
+                Accessible mental health and family counseling services designed for Sand Springs families through Safe Harbor Behavioral Health's community-focused programs.
               </p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Family therapy services</li>
@@ -192,7 +192,7 @@ export default function SandSpringsPage() {
               <a href="mailto:contact@adamjamestulsa.com" className="bg-cyan-400 hover:bg-cyan-500 text-cyan-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Schedule Consultation
               </a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-cyan-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-cyan-900 px-8 py-3 rounded-lg font-semibold transition-colors">
                 Call Adam James
               </a>
             </div>

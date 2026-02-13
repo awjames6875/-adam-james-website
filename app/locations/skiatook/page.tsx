@@ -60,7 +60,7 @@ export default function SkiatookPage() {
             </div>
             <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold text-indigo-900 mb-4">Community Mental Health</h3>
-              <p className="text-gray-700 mb-4">Family and community mental health services that serve Skiatook's outdoor-oriented families through Safe Harbor Mental Health.</p>
+              <p className="text-gray-700 mb-4">Family and community mental health services that serve Skiatook's outdoor-oriented families through Safe Harbor Behavioral Health.</p>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• Family therapy and counseling</li>
                 <li>• Community wellness programs</li>
@@ -87,7 +87,7 @@ export default function SkiatookPage() {
             <p className="text-xl mb-8 text-purple-100">Discover how Adam James can help your business thrive in Skiatook's unique lake community environment.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:contact@adamjamestulsa.com" className="bg-purple-400 hover:bg-purple-500 text-purple-900 px-8 py-3 rounded-lg font-semibold transition-colors">Schedule Consultation</a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-purple-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-purple-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
             </div>
           </div>
         </section>

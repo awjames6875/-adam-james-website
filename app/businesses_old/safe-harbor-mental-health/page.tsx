@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { LocalBusinessSchema } from '@/components/seo/LocalBusinessSchema'
 
 export const metadata: Metadata = {
-  title: 'Safe Harbor Mental Health | Comprehensive Mental Health Services in Tulsa',
-  description: 'Safe Harbor Mental Health provides compassionate, comprehensive mental health services to Tulsa families. Founded by Adam James Tulsa to make quality mental health care accessible to everyone.',
-  keywords: 'Safe Harbor Mental Health, mental health Tulsa, therapy Tulsa, counseling Oklahoma, Adam James mental health, Tulsa mental health services',
+  title: 'Safe Harbor Behavioral Health | Comprehensive Mental Health Services in Tulsa',
+  description: 'Safe Harbor Behavioral Health provides compassionate, comprehensive mental health services to Tulsa families. Founded by Adam James Tulsa to make quality mental health care accessible to everyone.',
+  keywords: 'Safe Harbor Behavioral Health, mental health Tulsa, therapy Tulsa, counseling Oklahoma, Adam James mental health, Tulsa mental health services',
   openGraph: {
-    title: 'Safe Harbor Mental Health | Mental Health Services Tulsa',
-    description: 'Compassionate mental health services for Tulsa families. Safe Harbor Mental Health makes quality care accessible.',
+    title: 'Safe Harbor Behavioral Health | Mental Health Services Tulsa',
+    description: 'Compassionate mental health services for Tulsa families. Safe Harbor Behavioral Health makes quality care accessible.',
     url: 'https://adamjamestulsa.com/businesses/safe-harbor-mental-health',
     type: 'website',
     images: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         url: '/images/safe-harbor-mental-health.jpg',
         width: 1200,
         height: 630,
-        alt: 'Safe Harbor Mental Health Tulsa',
+        alt: 'Safe Harbor Behavioral Health Tulsa',
       },
     ],
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const safeHarborBusinessData = {
   '@type': 'MedicalBusiness',
-  name: 'Safe Harbor Mental Health',
+  name: 'Safe Harbor Behavioral Health',
   description: 'Comprehensive mental health services for Tulsa families',
   founder: {
     '@type': 'Person',
@@ -60,7 +60,7 @@ export default function SafeHarborPage() {
                   <span className="text-sm font-semibold">Mental Health Services</span>
                 </div>
                 <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                  Safe Harbor Mental Health
+                  Safe Harbor Behavioral Health
                 </h1>
                 <p className="text-2xl md:text-3xl mb-6 text-teal-100">
                   Your Safe Haven for Mental Wellness
@@ -77,17 +77,17 @@ export default function SafeHarborPage() {
                     Schedule Consultation
                   </Link>
                   <a 
-                    href="tel:918-555-0100"
+                    href="tel:918-553-5746"
                     className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors text-center"
                   >
-                    Call: (918) 555-0100
+                    Call: (918) 553-5746
                   </a>
                 </div>
               </div>
               <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/safe-harbor-mental-health.jpg"
-                  alt="Safe Harbor Mental Health facility in Tulsa"
+                  alt="Safe Harbor Behavioral Health facility in Tulsa"
                   fill
                   className="object-cover"
                   priority
@@ -128,7 +128,7 @@ export default function SafeHarborPage() {
               Our Mission: Making Mental Health Care Accessible
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              Safe Harbor Mental Health was founded with a simple but powerful mission: to provide 
+              Safe Harbor Behavioral Health was founded with a simple but powerful mission: to provide 
               compassionate, evidence-based mental health services to every family in Tulsa who needs them.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -308,7 +308,7 @@ export default function SafeHarborPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-              Why Choose Safe Harbor Mental Health?
+              Why Choose Safe Harbor Behavioral Health?
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -441,7 +441,7 @@ export default function SafeHarborPage() {
               Ready to Take the First Step?
             </h2>
             <p className="text-xl text-teal-100 mb-8 leading-relaxed">
-              Your journey to better mental health starts here. Contact Safe Harbor Mental Health 
+              Your journey to better mental health starts here. Contact Safe Harbor Behavioral Health 
               today to schedule a consultation or learn more about our services.
             </p>
             
@@ -453,10 +453,10 @@ export default function SafeHarborPage() {
                 Schedule Consultation
               </Link>
               <a 
-                href="tel:918-555-0100"
+                href="tel:918-553-5746"
                 className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
               >
-                Call: (918) 555-0100
+                Call: (918) 553-5746
               </a>
             </div>
 

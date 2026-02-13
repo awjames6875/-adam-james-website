@@ -28,7 +28,7 @@ interface LocalBusiness {
   };
   sameAs?: string[];
   serviceArea?: {
-    '@type': 'GeoCircle' | 'AdministrativeArea';
+    '@type': string;
     name?: string;
     geoMidpoint?: {
       latitude: number;
@@ -108,7 +108,7 @@ export const adamJamesBusinessData: LocalBusiness = {
   description: 'Tulsa entrepreneur and business leader specializing in mental health services, corporate housing solutions, and business development. Serving the Tulsa community with compassion and excellence.',
   url: 'https://adamjamestulsa.com',
   image: 'https://adamjamestulsa.com/images/adam-james-business.jpg',
-  telephone: '(918) 555-0123',
+  telephone: '(918) 553-5746',
   email: 'adam@adamjamestulsa.com',
   address: {
     streetAddress: '123 Main Street',

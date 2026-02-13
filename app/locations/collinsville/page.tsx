@@ -87,7 +87,7 @@ export default function CollinsvillePage() {
             <p className="text-xl mb-8 text-rose-100">Discover how Adam James can help your business achieve sustainable growth while strengthening Collinsville's community bonds.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:contact@adamjamestulsa.com" className="bg-rose-400 hover:bg-rose-500 text-rose-900 px-8 py-3 rounded-lg font-semibold transition-colors">Schedule Consultation</a>
-              <a href="tel:+1-918-555-0123" className="border-2 border-white text-white hover:bg-white hover:text-rose-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
+              <a href="tel:+1-918-553-5746" className="border-2 border-white text-white hover:bg-white hover:text-rose-900 px-8 py-3 rounded-lg font-semibold transition-colors">Call Adam James</a>
             </div>
           </div>
         </section>

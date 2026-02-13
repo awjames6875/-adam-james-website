@@ -205,7 +205,7 @@ export function ContactForm() {
                   value={formData.phone}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="(918) 555-0123"
+                  placeholder="(918) 553-5746"
                 />
             </div>
 

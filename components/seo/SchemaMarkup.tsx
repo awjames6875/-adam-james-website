@@ -220,7 +220,7 @@ export const adamJamesPersonSchema: Person = {
     addressCountry: 'US',
   },
   email: 'adam@adamjamestulsa.com',
-  telephone: '+1-918-555-0123',
+  telephone: '+1-918-553-5746',
   sameAs: [
     'https://linkedin.com/in/adamjamestulsa',
     'https://facebook.com/adamjamestulsa',
@@ -250,7 +250,7 @@ export const adamJHoldingsSchema: Organization = {
   image: ['https://adamjamestulsa.com/images/adamj-holdings-office.jpg'],
   description: 'AdamJ Holdings LLC is a diversified investment and business management company based in Tulsa, Oklahoma, focusing on strategic acquisitions and business development.',
   email: 'info@adamjholdings.com',
-  telephone: '+1-918-555-0123',
+  telephone: '+1-918-553-5746',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '123 Main Street, Suite 100',
@@ -274,7 +274,7 @@ export const tulsaTherapeuticServicesSchema: Organization = {
   logo: 'https://adamjamestulsa.com/images/tulsa-therapeutic-logo.png',
   description: 'Tulsa Therapeutic Services provides comprehensive mental health and wellness services to individuals and families in the Tulsa metro area.',
   email: 'contact@tulsatherapeutic.com',
-  telephone: '+1-918-555-0124',
+  telephone: '+1-918-553-5746',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '456 Wellness Way',
@@ -303,7 +303,7 @@ export const tulsaCorporateHousingSchema: Organization = {
   logo: 'https://adamjamestulsa.com/images/tulsa-corporate-housing-logo.png',
   description: 'Tulsa Corporate Housing provides premium furnished apartment solutions for business travelers, relocating professionals, and extended stay guests in the Tulsa area.',
   email: 'reservations@tulsacorporatehousing.com',
-  telephone: '+1-918-555-0125',
+  telephone: '+1-918-553-5746',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '789 Corporate Drive',

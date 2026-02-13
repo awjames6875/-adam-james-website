@@ -35,7 +35,7 @@ Based on analysis, there appears to be **limited direct competition** for the ex
 ### Secondary Keywords (Medium Priority)
 6. "Oklahoma business leader Adam James"
 7. "Tulsa corporate housing Adam James"
-8. "Adam James Safe Harbor Mental Health"
+8. "Adam James Safe Harbor Behavioral Health"
 9. "Adam James Integrity Corporate Housing"
 10. "Tulsa business consultant Adam James"
 

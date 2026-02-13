@@ -54,7 +54,7 @@ export const AdamJamesTulsaFAQ: React.FC = () => {
     },
     {
       question: "How can I contact Adam James in Tulsa?",
-      answer: "You can contact Adam James in Tulsa by calling (918) 555-0123, emailing contact@adamjamestulsa.com, or visiting his office at 123 Main Street, Suite 100, Tulsa, OK 74103. He also maintains an active presence on LinkedIn, Facebook, and other social media platforms for business networking and communication.",
+      answer: "You can contact Adam James in Tulsa by calling (918) 553-5746, emailing contact@adamjamestulsa.com, or visiting his office at 123 Main Street, Suite 100, Tulsa, OK 74103. He also maintains an active presence on LinkedIn, Facebook, and other social media platforms for business networking and communication.",
     },
     {
       question: "What makes Adam James different from other Tulsa entrepreneurs?",
